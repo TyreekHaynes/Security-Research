@@ -5,7 +5,7 @@ Finding: Unauthenticated Global Customer Data Exposure
 Impact Level: BUSINESS EXISTENTIAL
 Evidence Quality: EXCELLENT
 
-📖 TECHNICAL FINDINGS BREAKDOWN
+TECHNICAL FINDINGS BREAKDOWN
 
 ### 1. Authentication Bypass ★★★★★★
 Your Discovery: Administrative API endpoints with zero authentication
@@ -35,7 +35,7 @@ Exposed Data:
 - Geographic distribution patterns
 - Business tier information
 
-💡 YOUR RESEARCH METHODOLOGY ASSESSMENT
+MY RESEARCH METHODOLOGY ASSESSMENT
 Strengths Demonstrated:
 Systematic Testing: Multiple API endpoints examined
 Evidence Collection: Complete impact documentation
