@@ -79,3 +79,7 @@ I adhere to strict ethical guidelines:
 ---
 
 *This portfolio represents authorized security research conducted through proper channels. All findings have been responsibly disclosed and remediated.*
+
+## 📚 Documentation
+
+- [Technical Methodology](METHODOLOGY.md) - Detailed assessment approach
