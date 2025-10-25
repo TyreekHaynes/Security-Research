@@ -76,6 +76,12 @@ I adhere to strict ethical guidelines:
 - Collaborative remediation support
 - No public disclosure without vendor approval
 
+## 📞 Contact
+
+**Email:** tyreekhaynes01@gmail.com  
+**LinkedIn:** [Tyreek H](https://www.linkedin.com/in/tyreek-haynes)
+*Professional inquiries and research collaboration welcome.*
+
 ---
 
 *This portfolio represents authorized security research conducted through proper channels. All findings have been responsibly disclosed and remediated.*
