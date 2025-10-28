@@ -9,6 +9,7 @@ Independent security researcher focused on identifying critical vulnerabilities 
 - **Payment System Integrity**
 - **Supply Chain Security**
 - **Infrastructure Penetration Testing**
+- **Reverse Engineering**
 
 ## 🚀 Representative Engagements
 
