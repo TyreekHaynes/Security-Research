@@ -40,10 +40,10 @@ Remediation Roadmap	Immediate fixes • Tactical controls • Strategic improvem
 ## 🛠️ Core Capabilities
 
 ### **Technical Testing**
-![Web Security](https://img.shields.io/badge/Web_Security-Expert-green)
-![Cloud Security](https://img.shields.io/badge/Cloud_Security-AWS%2FAzure%2FGCP-blue)
-![API Security](https://img.shields.io/badge/API_Security-REST%2FGraphQL%2FgRPC-orange)
-![Mobile Security](https://img.shields.io/badge/Mobile-iOS%2FAndroid%2FReact_Native-lightgrey)
+## 🛠️ Core Capabilities
+
+### **Technical Testing**
+<img src="https://img.shields.io/badge/Web_Security-Expert-green" alt="Web Security"> <img src="https://img.shields.io/badge/Cloud_Security-AWS%2FAzure%2FGCP-blue" alt="Cloud Security"> <img src="https://img.shields.io/badge/API_Security-REST%2FGraphQL%2FgRPC-orange" alt="API Security"> <img src="https://img.shields.io/badge/Mobile-iOS%2FAndroid%2FReact_Native-lightgrey" alt="Mobile Security">
 
 Methodology Features
 🎯 Intelligence-Driven: OSINT, threat intelligence, and attacker emulation
