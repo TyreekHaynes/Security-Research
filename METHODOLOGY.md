@@ -36,12 +36,14 @@ Deliverable	Components
 Executive Summary	Business impact • Risk scoring • Executive recommendations
 Technical Deep Dive	PoC code • Reproduction steps • Attack narratives
 Remediation Roadmap	Immediate fixes • Tactical controls • Strategic improvements
-🛠️ Core Capabilities
-Technical Testing
-https://img.shields.io/badge/Web_Security-Expert-green
-https://img.shields.io/badge/Cloud_Security-AWS%252FAzure%252FGCP-blue
-https://img.shields.io/badge/API_Security-REST%252FGraphQL%252FgRPC-orange
-https://img.shields.io/badge/Mobile-iOS%252FAndroid%252FReact_Native-lightgrey
+
+## 🛠️ Core Capabilities
+
+### **Technical Testing**
+![Web Security](https://img.shields.io/badge/Web_Security-Expert-green)
+![Cloud Security](https://img.shields.io/badge/Cloud_Security-AWS%2FAzure%2FGCP-blue)
+![API Security](https://img.shields.io/badge/API_Security-REST%2FGraphQL%2FgRPC-orange)
+![Mobile Security](https://img.shields.io/badge/Mobile-iOS%2FAndroid%2FReact_Native-lightgrey)
 
 Methodology Features
 🎯 Intelligence-Driven: OSINT, threat intelligence, and attacker emulation
@@ -62,10 +64,16 @@ Affected Users	User count, privilege levels, data sensitivity
 Discoverability	Public exposure, authentication requirements
 Remediation Timeline
 Priority	Timeframe	Examples
+
 🚨 Critical	< 24 hours	RCE, authentication bypass, data exposure
+
 🔴 High	1-2 weeks	Privilege escalation, business logic flaws
+
 🟡 Medium	1-4 weeks	XSS, CSRF, configuration issues
+
 🔵 Low	1-6 months	Informational leaks, hardening opportunities
+
+
 ⚖️ Professional Framework
 Ethical Guidelines
 ✅ Strict scope adherence
