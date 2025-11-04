@@ -4,12 +4,14 @@ Independent security researcher focused on identifying critical vulnerabilities 
 
 ## 🔍 Research Focus
 
-- **API Security & Authentication Bypass**
-- **Cloud IAM & Configuration Security** 
-- **Payment System Integrity**
-- **Supply Chain Security**
-- **Infrastructure Penetration Testing**
-- **Reverse Engineering**
+🔍 Research Focus
+- WordPress Ecosystem Security
+- Plugin & Theme Vulnerability Research  
+- API Security & Authentication Bypass
+- Cloud IAM & Configuration Security
+- Payment System Integrity
+- Supply Chain Security
+- Infrastructure Penetration Testing
 
 ## 🚀 Representative Engagements
 
