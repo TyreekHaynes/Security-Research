@@ -31,6 +31,8 @@
 - 📡 Validated exploitation through **advanced out-of-band techniques**
 - 📝 Submitted for **CVE assignment** through official MITRE process
 
+**📖 [View Full Case Study →](./case-studies/elementor-rce/)**
+
 **✅ Outcome**: Responsible disclosure pending vendor patch and CVE assignment
 
 ---
