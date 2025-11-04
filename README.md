@@ -1,156 +1,143 @@
+# 🔒 Security Research Portfolio
 
-Security Research Portfolio
-Independent security researcher focused on identifying critical vulnerabilities in enterprise systems and WordPress ecosystems through authorized testing and responsible disclosure.
+**Independent security researcher focused on identifying critical vulnerabilities in enterprise systems and WordPress ecosystems through authorized testing and responsible disclosure.**
 
-🔍 Research Focus
-WordPress Ecosystem Security - Plugin & theme vulnerability research
+---
 
-API Security & Authentication Bypass - Enterprise API endpoint testing
+## 🎯 Research Focus
 
-Cloud IAM & Configuration Security - Cloud infrastructure assessment
+| Area | Specialization |
+|------|----------------|
+| 🔐 **WordPress Ecosystem Security** | Plugin & theme vulnerability research |
+| 🛡️ **API Security & Authentication Bypass** | Enterprise API endpoint testing |
+| ☁️ **Cloud IAM & Configuration Security** | Cloud infrastructure assessment |
+| 💳 **Payment System Integrity** | Financial transaction security |
+| 🔗 **Supply Chain Security** | Third-party dependency analysis |
+| 🌐 **Infrastructure Penetration Testing** | Network and service exploitation |
 
-Payment System Integrity - Financial transaction security
+---
 
-Supply Chain Security - Third-party dependency analysis
+## 🚨 Representative Engagements
 
-Infrastructure Penetration Testing - Network and service exploitation
+### 🔥 **Elementor WordPress Plugin - Unauthenticated RCE**
+**📊 Impact**: Critical unauthenticated remote code execution affecting **5M+ WordPress installations**
 
-🚀 Representative Engagements
-Elementor WordPress Plugin - Unauthenticated RCE
-Impact: Critical unauthenticated remote code execution affecting 5M+ WordPress installations
+**🔧 Technical Root Cause**: Command injection via `elementor_action` parameter with unsanitized user input
 
-Technical Root Cause: Command injection via elementor_action parameter with unsanitized user input
+**🎯 Key Actions**:
+- 🎯 Discovered **zero-day RCE** in Elementor page builder plugin (v3.25.x)
+- 🔍 Demonstrated **blind command execution** through systematic parameter analysis
+- ⚖️ Conducted **differential security analysis** across protected vs unprotected deployments
+- 📡 Validated exploitation through **advanced out-of-band techniques**
+- 📝 Submitted for **CVE assignment** through official MITRE process
 
-Key Actions:
+**✅ Outcome**: Responsible disclosure pending vendor patch and CVE assignment
 
-Discovered zero-day RCE in Elementor page builder plugin (v3.25.x)
+---
 
-Demonstrated blind command execution through systematic parameter analysis
+### 🌍 **Enterprise IAM Catastrophe Prevention**
+**📊 Impact**: Critical authentication bypass affecting **2,000+ organizations across 6 continents**
 
-Conducted differential security analysis across protected vs unprotected deployments
+**🔧 Technical Root Cause**: Unauthenticated administrative API endpoints exposing complete customer intelligence
 
-Validated exploitation through advanced out-of-band techniques
+**🎯 Key Actions**:
+- 🗺️ Discovered exposed **global client database** through systematic API testing
+- ⚡ Demonstrated **trivial exploitation** requiring zero authentication
+- 📈 Mapped business impact across **Fortune 500, government, and education sectors**
 
-Submitted for CVE assignment through official MITRE process
+**✅ Outcome**: Emergency authentication enforcement and complete API security overhaul
 
-Outcome: Responsible disclosure pending vendor patch and CVE assignment
+---
 
-Enterprise IAM Catastrophe Prevention
-Impact: Critical authentication bypass affecting 2,000+ organizations across 6 continents
+### 💰 **Payment System Compromise Assessment**
+**📊 Impact**: Transaction flow manipulation in global retail platform
 
-Technical Root Cause: Unauthenticated administrative API endpoints exposing complete customer intelligence
+**🔧 Technical Root Cause**: Weak API key validation allowing payment processing bypass
 
-Key Actions:
+**🎯 Key Actions**:
+- 🔑 Identified **hardcoded API keys** in production mobile applications
+- 💸 Demonstrated **complete payment flow compromise** (authorization → capture)
+- 📋 Provided **PCI-DSS aligned remediation roadmap**
 
-Discovered exposed global client database through systematic API testing
+**✅ Outcome**: Protected financial transaction integrity and regulatory compliance
 
-Demonstrated trivial exploitation requiring zero authentication
+---
 
-Mapped business impact across Fortune 500, government, and education sectors
+### ⚡ **Cloud Infrastructure Security Review**
+**📊 Impact**: Privilege escalation and data exposure in multi-tenant environments
 
-Outcome: Emergency authentication enforcement and complete API security overhaul
+**🔧 Technical Root Cause**: IAM misconfigurations and over-privileged service accounts
 
-Payment System Compromise Assessment
-Impact: Transaction flow manipulation in global retail platform
+**🎯 Key Actions**:
+- 🗺️ Mapped **attack surface** across cloud and container infrastructure
+- 🔄 Demonstrated **lateral movement** through service account abuse
+- 🔗 Identified **supply chain risks** through third-party service analysis
 
-Technical Root Cause: Weak API key validation allowing payment processing bypass
+**✅ Outcome**: Least privilege implementation and access control hardening
 
-Key Actions:
+---
 
-Identified hardcoded API keys in production mobile applications
+## 🛠️ Technical Methodology
 
-Demonstrated complete payment flow compromise (authorization → capture)
+### 🔍 **Reconnaissance & Enumeration**
+- 🎯 Multi-vector attack surface mapping
+- 🔍 API endpoint discovery through reverse engineering
+- ☁️ Cloud infrastructure and third-party dependency analysis
+- 🌐 Subdomain enumeration and certificate transparency monitoring
+- 🏗️ WordPress plugin and theme vulnerability assessment
 
-Provided PCI-DSS aligned remediation roadmap
+### ⚔️ **Exploitation & Validation**
+- 🚪 Authentication bypass via protocol manipulation
+- 💻 Command injection and RCE validation methodologies
+- 🎯 Business logic abuse and data exfiltration
+- 🔧 Infrastructure service exploitation (SSH, SMTP, DNS)
+- 📈 Privilege escalation through misconfigurations
+- 📡 Blind RCE validation through out-of-band techniques
 
-Outcome: Protected financial transaction integrity and regulatory compliance
+### 📊 **Impact Analysis**
+- 🏢 Business intelligence extraction and competitive risk assessment
+- 💰 Financial impact quantification and regulatory compliance mapping
+- 📉 Reputational damage evaluation and remediation prioritization
+- 🌍 Large-scale impact assessment across enterprise environments
 
-Cloud Infrastructure Security Review
-Impact: Privilege escalation and data exposure in multi-tenant environments
+---
 
-Technical Root Cause: IAM misconfigurations and over-privileged service accounts
+## 📈 Research Metrics
 
-Key Actions:
+| Metric | Achievement |
+|--------|-------------|
+| 🏗️ **WordPress Installations Protected** | 5M+ |
+| ✅ **Responsible Disclosure Rate** | 100% |
+| 🎯 **Critical CVEs** | Identified & in remediation |
+| 🌍 **Global Impact** | Fortune 500, Government, Education |
+| 🗺️ **Geographic Reach** | 6 continents |
 
-Mapped attack surface across cloud and container infrastructure
+---
 
-Demonstrated lateral movement through service account abuse
+## 🔐 Responsible Disclosure
 
-Identified supply chain risks through third-party service analysis
+- ✅ **Authorized testing only**
+- 📧 **Immediate vendor notification** upon discovery
+- 📋 **Detailed technical reports** with reproduction steps
+- 🤝 **Collaborative remediation support**
+- 🔒 **No public disclosure** without vendor approval
+- 📝 **Official CVE assignment** through proper channels
 
-Outcome: Least privilege implementation and access control hardening
+---
 
-🛠️ Technical Methodology
-My approach combines systematic reconnaissance with deep technical exploitation:
+## 📞 Contact & Connect
 
-Reconnaissance & Enumeration
-Multi-vector attack surface mapping
+| Platform | Link |
+|----------|------|
+| 📧 **Email** | tyreekhaynes01@gmail.com |
+| 💻 **GitHub** | TyreekHaynes |
+| 👔 **LinkedIn** | Tyreek Haynes |
 
-API endpoint discovery through reverse engineering
+**💼 Professional inquiries and research collaboration welcome.**
 
-Cloud infrastructure and third-party dependency analysis
+---
 
-Subdomain enumeration and certificate transparency monitoring
-
-WordPress plugin and theme vulnerability assessment
-
-Exploitation & Validation
-Authentication bypass via protocol manipulation
-
-Command injection and RCE validation methodologies
-
-Business logic abuse and data exfiltration
-
-Infrastructure service exploitation (SSH, SMTP, DNS)
-
-Privilege escalation through misconfigurations
-
-Blind RCE validation through out-of-band techniques
-
-Impact Analysis
-Business intelligence extraction and competitive risk assessment
-
-Financial impact quantification and regulatory compliance mapping
-
-Reputational damage evaluation and remediation prioritization
-
-Large-scale impact assessment across enterprise environments
-
-📊 Research Metrics
-5M+ WordPress installations protected through Elementor RCE discovery
-
-100% responsible disclosure track record
-
-Critical CVEs identified and in remediation process
-
-Global impact across Fortune 500, government, and education sectors
-
-Multi-continent findings affecting organizations across 6 continents
-
-🔐 Responsible Disclosure
-I adhere to strict ethical guidelines:
-
-Authorized testing only
-
-Immediate vendor notification upon discovery
-
-Detailed technical reports with reproduction steps
-
-Collaborative remediation support
-
-No public disclosure without vendor approval
-
-Official CVE assignment through proper channels
-
-📞 Contact
-Email: tyreekhaynes01@gmail.com
-
-GitHub: TyreekHaynes
-
-LinkedIn: Tyreek Haynes
-
-Professional inquiries and research collaboration welcome.
-
+> *This portfolio represents authorized security research conducted through proper channels. All findings have been responsibly disclosed and are in various stages of remediation.*
 ## 📚 Documentation
 
 - [Technical Methodology](METHODOLOGY.md) - Detailed assessment approach
