@@ -24,6 +24,13 @@ Independent security researcher focused on identifying critical vulnerabilities 
 - Mapped business impact across Fortune 500, government, and education sectors
 **Outcome:** Emergency authentication enforcement and complete API security overhaul
 
+**WordPress Ecosystem Assessment**
+- Plugin and theme vulnerability discovery via systematic parameter analysis
+- Command injection and file inclusion testing affecting 5M+ installations  
+- Differential security analysis across protected vs unprotected deployments
+- Blind RCE validation through advanced out-of-band techniques
+- Large-scale impact assessment across enterprise environments
+
 ### Payment System Compromise Assessment  
 **Impact:** Transaction flow manipulation in global retail platform
 **Technical Root Cause:** Weak API key validation allowing payment processing bypass
