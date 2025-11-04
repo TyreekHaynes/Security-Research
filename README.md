@@ -19,6 +19,20 @@
 
 ## 🚨 Representative Engagements
 
+### 🏢 **WordPress Infrastructure Takeover: Zero to Admin**
+**📊 Impact**: Complete administrative takeover prevented, securing critical business infrastructure
+
+**🔧 Technical Root Cause**: Architectural authentication bypass through proxy chain routing and cache manipulation
+
+**🎯 Key Actions**:
+- 🎯 Developed **novel technique** for authentication bypass
+- 🔄 Utilized **proxy chain routing** to evade detection
+- 💾 Leveraged **cache manipulation** for privilege escalation
+- ⏱️ Achieved **full system compromise** in under 24 hours
+- 🔍 Bypassed **all security controls** without passwords or exploits
+
+**✅ Outcome**: Critical infrastructure secured, complete business compromise prevented
+
 ### 🔥 **Elementor WordPress Plugin - Unauthenticated RCE**
 **📊 Impact**: Critical unauthenticated remote code execution affecting **5M+ WordPress installations**
 
@@ -31,7 +45,7 @@
 - 📡 Validated exploitation through **advanced out-of-band techniques**
 - 📝 Submitted for **CVE assignment** through official MITRE process
 
-**📖 [View Full Case Study →](./case-studies/elementor-rce/)
+**📖 [View Full Case Study →](./case-studies/elementor-rce/)**
 
 **✅ Outcome**: Responsible disclosure pending vendor patch and CVE assignment
 
