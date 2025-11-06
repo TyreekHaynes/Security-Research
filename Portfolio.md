@@ -1,6 +1,6 @@
 🛡️ **Tyreek Haynes | Elite Security Research Portfolio**
 <p align="center">
-<strong>Zero-Day Hunter • Enterprise Protector • Business Risk Translator</strong><br>
+<strong>Zero-Day Hunter • Business Protector • Business Risk Translator</strong><br>
 <em>Transforming vulnerability discovery into actionable business intelligence</em>
 </p>
 
@@ -12,7 +12,7 @@
 
 | 🔥 Zero-Days | 🌍 Global Reach | 💰 Business Value | 🛡️ Organizations |
 |:---:|:---:|:---:|:---:|
-| 5+ Critical | 6 Continents | $1M+ Prevented | 1,000+ Protected |
+| 7+ Critical | 6 Continents | $1M+ Prevented | 1,000+ Protected |
 
 </div>
 
