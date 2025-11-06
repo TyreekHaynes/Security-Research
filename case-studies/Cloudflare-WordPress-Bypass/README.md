@@ -1,6 +1,6 @@
 # 🛡️ Cloudflare WAF & WordFence Bypass Case Study
 
-> **Strategic Manual Testing Defeats Enterprise Security in 2 Hours**  
+> **How My Strategic Manual Testing Defeats Enterprise Security in 2 Hours**  
 
 ## 📋 Quick Navigation
 - [Executive Summary](#-executive-summary)
