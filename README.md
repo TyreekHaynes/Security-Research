@@ -153,19 +153,6 @@
 
 ---
 
-📚 Research Findings Archive
-🔐 Authentication & IAM
-Global IAM Exposure
-
-💰 Payment Security
-Payment System Bypass
-
-🌐 Infrastructure & Supply Chain
-Infrastructure Supply Chain
-
-🏗️ WordPress Ecosystem
-Elementor RCE
-
 > *This portfolio represents authorized security research conducted through proper channels. All findings have been responsibly disclosed and are in various stages of remediation.*
 ## 📚 Documentation
 
