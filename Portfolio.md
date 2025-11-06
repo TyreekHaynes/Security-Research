@@ -223,4 +223,4 @@ Transforming security research into tangible business value since 2024
 
 © 2025 Tyreek Haynes | All research conducted under authorized engagement and responsible disclosure protocols
 
-</div> ```
+</div>
