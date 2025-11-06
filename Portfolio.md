@@ -183,14 +183,7 @@ Enterprise API Security	    🏆 Elite	Global Intelligence Protection
 Payment System Integrity	🏆 Elite	Financial Risk Mitigation
 Infrastructure Supply Chain	🏆 Elite	Business Continuity Assurance
 Mass-Software Vulnerability	🏆 Elite	5M+ Sites Secured
-</div>
-🔗 Connect & Collaborate
-<div align="center">
-https://img.shields.io/badge/GitHub-TyreekHaynes-181717?style=for-the-badge&logo=github
-https://img.shields.io/badge/LinkedIn-Tyreek_Haynes-0077B5?style=for-the-badge&logo=linkedin
-https://img.shields.io/badge/Email-tyreekhaynes01@gmail.com-D14836?style=for-the-badge&logo=gmail
 
-</div>
 ⚡ Research Ethics & Impact
 🛡️ Responsible Disclosure Framework
 Ethical Excellence:
@@ -214,9 +207,6 @@ Metric	Impact	Scale
 <div align="center">
 🚀 From Vulnerability Discovery to Enterprise Resilience
 Bridging Elite Technical Depth with Strategic Business Impact
-https://komarev.com/ghpvc/?username=TyreekHaynes&color=blue&label=Portfolio+Views
-https://img.shields.io/badge/Research_Impact-Elite_Level-orange?style=flat-square
-https://img.shields.io/badge/Zero_Days_Critical-5+-red?style=flat-square
 
 Transforming security research into tangible business value since 2024
 
