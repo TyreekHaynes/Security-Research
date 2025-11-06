@@ -126,7 +126,6 @@ Research	Impact	Status
 Elementor WordPress RCE	5M+ Installations	🟡 CVE-PENDING
 Enterprise API Auth Bypass	Global Intelligence Protection	✅ Responsible Disclosure
 Payment System Security	Financial Risk Mitigation	🔒 Confidential
-Supply Chain Security	Infrastructure Resilience	📄 Methodology Paper
 </div>
 
 🔬 Technical Arsenal
@@ -180,7 +179,7 @@ Executive Bridge:
 🎯 Research Focus Areas
 <div align="center">
 Domain	Expertise Level	Recent Impact
-Enterprise API Security	🏆 Elite	Global Intelligence Protection
+Enterprise API Security	    🏆 Elite	Global Intelligence Protection
 Payment System Integrity	🏆 Elite	Financial Risk Mitigation
 Infrastructure Supply Chain	🏆 Elite	Business Continuity Assurance
 Mass-Software Vulnerability	🏆 Elite	5M+ Sites Secured
