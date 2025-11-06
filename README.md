@@ -28,7 +28,7 @@
 - 🎯 Developed **novel technique** for authentication bypass
 - 🔄 Utilized **proxy chain routing** to evade detection
 - 💾 Leveraged **cache manipulation** for privilege escalation
-- ⏱️ Achieved **full system compromise** in under 24 hours
+- ⏱️ Achieved **full system compromise** in under 5 hours
 - 🔍 Bypassed **all security controls** without passwords or exploits
 
 **✅ Outcome**: Critical infrastructure secured, complete business compromise prevented
