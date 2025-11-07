@@ -12,7 +12,7 @@
 
 | 🔥 Zero-Days | 🌍 Global Reach | 💰 Business Value | 🛡️ Organizations |
 |:---:|:---:|:---:|:---:|
-| 7+ Critical | 6 Continents | $1M+ Prevented | 1,000+ Protected |
+| 7+ Critical | 6 Continents | $100M+ Prevented | 1,000+ Protected |
 
 </div>
 
