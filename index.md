@@ -17,6 +17,6 @@ title: Home
 {% endfor %}
 
 ## Featured Findings
-- [Global IAM Exposure](/findings/global-iam-exposure)
-- [Infrastructure Supply Chain](/findings/infrastructure-supply-chain)
-- [Payment System Bypass](/findings/payment-system-bypass) where does the index go
+- [Global IAM Exposure](/Security-Research/findings/global-iam-exposure.html)
+- [Infrastructure Supply Chain](/Security-Research/findings/infrastructure-supply-chain.html)
+- [Payment System Bypass](/Security-Research/findings/payment-system-bypass.html)
