@@ -37,6 +37,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Glitch effect for headers */
@@ -60,13 +61,22 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-/* Code blocks */
+/* Code blocks - FIXED VERSION */
 pre, code {
     background: var(--darker-bg);
     border: 1px solid var(--matrix-green);
     border-radius: 4px;
     padding: 1rem;
     overflow-x: auto;
+    white-space: pre-wrap;       /* Allow wrapping */
+    word-wrap: break-word;       /* Break long words */
+    max-width: 100%;
+}
+
+/* Specifically for Python code blocks */
+pre code {
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .terminal-footer {
@@ -76,8 +86,7 @@ pre, code {
     margin-top: 4rem;
 }
 
-/* NEW STYLES ADDED BELOW */
-
+/* Case Study Styles */
 .case-study-preview {
     border-left: 4px solid var(--hacker-green);
     padding: 1.5rem;
@@ -141,6 +150,12 @@ pre, code {
 }
 
 /* PORTFOLIO STYLES */
+.portfolio-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
 .portfolio-header {
     text-align: center;
     border-bottom: 2px solid var(--hacker-green);
@@ -155,7 +170,7 @@ pre, code {
 
 .impact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     margin: 2rem 0;
 }
@@ -172,6 +187,37 @@ pre, code {
     margin-top: 0;
 }
 
+.breakthrough {
+    background: rgba(0, 255, 0, 0.05);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--hacker-green);
+    border-radius: 4px;
+}
+
+.breakthrough h3 {
+    margin-top: 0;
+    color: var(--hacker-green);
+}
+
+.critical {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.executive-snapshot h2,
+.research-breakthroughs h2,
+.methodology h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+hr {
+    border: 1px solid var(--matrix-green);
+    margin: 3rem 0;
+}
+
+/* Grid styles for tables */
 .matrix-grid, .business-grid, .research-grid, .expertise-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -214,62 +260,6 @@ pre, code {
     margin-top: 2rem;
 }
 
-/* Portfolio Specific Styles */
-.portfolio-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.breakthrough {
-    background: rgba(0, 255, 0, 0.05);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    border-left: 4px solid var(--hacker-green);
-    border-radius: 4px;
-}
-
-.breakthrough h3 {
-    margin-top: 0;
-    color: var(--hacker-green);
-}
-
-.critical {
-    color: #ff4444;
-    font-weight: bold;
-}
-
-.executive-snapshot h2,
-.research-breakthroughs h2,
-.methodology h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-hr {
-    border: 1px solid var(--matrix-green);
-    margin: 3rem 0;
-}
-
-/* Clean up the existing grid styles */
-.impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.impact-item {
-    background: rgba(0, 255, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    border-radius: 8px;
-    border: 1px solid var(--matrix-green);
-}
-
-.impact-item h3 {
-    margin-top: 0;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     .terminal-header nav a {
@@ -289,38 +279,4 @@ hr {
     .research-grid, .expertise-grid, .global-impact {
         grid-template-columns: 1fr;
     }
-}
-
-
-/* Fix code block overflow */
-pre, code {
-    background: var(--darker-bg);
-    border: 1px solid var(--matrix-green);
-    border-radius: 4px;
-    padding: 1rem;
-    overflow-x: auto;
-    white-space: pre-wrap;       /* Allow wrapping */
-    word-wrap: break-word;       /* Break long words */
-    max-width: 100%;
-}
-
-/* Specifically for Python code blocks */
-pre code {
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-/* Ensure container handles overflow */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* Portfolio container specific */
-.portfolio-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow-x: hidden;
 }
