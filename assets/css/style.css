@@ -61,35 +61,7 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-/* Enhanced Code blocks with Terminal Animation */
-pre, code {
-    background: #1a1a1a !important;
-    border: 1px solid var(--matrix-green);
-    border-left: 4px solid var(--hacker-green) !important;
-    border-radius: 4px;
-    padding: 1rem;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
-    position: relative;
-}
-
-/* Terminal header for code blocks */
-pre::before {
-    content: '↳ Terminal';
-    position: absolute;
-    top: -8px;
-    left: 10px;
-    background: var(--hacker-green);
-    color: #000;
-    padding: 2px 8px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px 4px 0 0;
-    z-index: 1;
-}
-
+/* ===== TERMINAL ANIMATIONS ===== */
 /* Blinking cursor animation */
 .typing-cursor {
     border-right: 2px solid var(--hacker-green);
@@ -121,18 +93,48 @@ pre::before {
     50% { border-color: var(--hacker-green); }
 }
 
-/* Command line prompt style */
-.command-line {
+/* Enhanced code blocks with terminal styling */
+pre {
+    background: #1a1a1a !important;
+    border: 1px solid var(--matrix-green);
+    border-left: 4px solid var(--hacker-green) !important;
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
     position: relative;
-    padding-left: 1.5rem;
 }
 
-.command-line::before {
-    content: '> ';
+pre::before {
+    content: '↳ Terminal';
     position: absolute;
-    left: 0.5rem;
-    color: var(--hacker-green);
+    top: -8px;
+    left: 10px;
+    background: var(--hacker-green);
+    color: #000;
+    padding: 2px 8px;
+    font-size: 0.8rem;
     font-weight: bold;
+    border-radius: 4px 4px 0 0;
+    z-index: 1;
+}
+
+pre code {
+    background: transparent !important;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border: none !important;
+}
+
+/* Code blocks */
+code {
+    background: var(--darker-bg);
+    border: 1px solid var(--matrix-green);
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9em;
 }
 
 .terminal-footer {
@@ -334,5 +336,10 @@ hr {
     
     .methodology-pillars {
         grid-template-columns: 1fr;
+    }
+    
+    pre::before {
+        font-size: 0.7rem;
+        padding: 1px 6px;
     }
 }
