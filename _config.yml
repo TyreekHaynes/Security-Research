@@ -1,12 +1,17 @@
 title: "Tyreek Haynes - Security Research"
 description: "Vulnerability research, case studies, and security analysis"
 baseurl: ""
-url: url: "https://TyreekHaynes.github.io/Security-Research"
+url: "https://tyreekhaynes.github.io"
 
-theme: minima
+# Remove theme line since we're custom
+# theme: minima
+
 plugins:
   - jekyll-feed
 
-header_pages:
-  - about.md
-  - METHODOLOGY.md
+# Specify custom layout
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
