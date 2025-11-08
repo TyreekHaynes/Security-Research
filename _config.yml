@@ -1,15 +1,11 @@
 title: "Tyreek Haynes - Security Research"
 description: "Vulnerability research, case studies, and security analysis"
-baseurl: ""
+baseurl: "/Security-Research"  # ← THIS IS CRITICAL
 url: "https://tyreekhaynes.github.io"
-
-# Remove theme line since we're custom
-# theme: minima
 
 plugins:
   - jekyll-feed
 
-# Specify custom layout
 defaults:
   - scope:
       path: ""
