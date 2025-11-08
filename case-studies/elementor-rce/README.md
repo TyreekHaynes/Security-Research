@@ -1,14 +1,14 @@
 # 🔥 Elementor WordPress Plugin - Unauthenticated RCE
 
 ## 📖 Executive Summary
-Critical unauthenticated remote code execution vulnerability discovered in Elementor Page Builder affecting **5M+ WordPress installations**. This zero-day vulnerability allows complete server compromise through command injection in the `elementor_action` parameter.
+Critical unauthenticated remote code execution vulnerability discovered in Elementor Page Builder affecting **5M+ WordPress installations**. This zero-day vulnerability allows complete server compromise through command injection in the elementor_action parameter.
 
 **CVSS Score**: 9.8/10 (Critical)  
 **Status**: CVE Assignment Pending  
 **Impact**: 5,000,000+ WordPress Sites
 
 ## 🎯 Discovery Timeline
-- **Day 1**: Systematic parameter fuzzing identified `elementor_action` as processing user input
+- **Day 1**: Systematic parameter fuzzing identified elementor_action as processing user input
 - **Day 2**: Command injection validation through differential analysis
 - **Day 3**: Blind RCE confirmation and impact assessment
 - **Day 4**: Responsible disclosure process initiated
