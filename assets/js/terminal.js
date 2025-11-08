@@ -1,25 +1,24 @@
-// Simple typing animation for code blocks
+// Full typing animation for code blocks
 document.addEventListener('DOMContentLoaded', function() {
-    // Add typing animation to all pre code blocks
     const codeBlocks = document.querySelectorAll('pre code');
     
     codeBlocks.forEach(block => {
         const originalText = block.textContent;
         block.textContent = '';
-        block.classList.add('typing-animation');
+        block.classList.add('typing-cursor');
         
         let i = 0;
         const typeWriter = () => {
             if (i < originalText.length) {
                 block.textContent += originalText.charAt(i);
                 i++;
-                setTimeout(typeWriter, 10); // Adjust speed here
+                setTimeout(typeWriter, 20); // Slower speed for better visibility
             } else {
-                block.classList.remove('typing-animation');
+                block.classList.remove('typing-cursor');
             }
         };
         
         // Start typing after a short delay
-        setTimeout(typeWriter, 500);
+        setTimeout(typeWriter, 1000);
     });
 });
