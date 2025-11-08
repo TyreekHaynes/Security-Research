@@ -1,4 +1,4 @@
-Case Study: Triple RCE Compromise Against Enterprise-Defended Non-Profit
+Case Study: Triple RCE Compromise Against Enterprise Defenses
 📋 Executive Summary
 3 Separate Remote Code Execution vectors discovered in a single engagement against a non-profit organization with enterprise-grade security controls, resulting in complete infrastructure compromise.
 
