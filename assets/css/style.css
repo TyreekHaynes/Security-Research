@@ -1,0 +1,77 @@
+/* Futuristic Terminal Theme */
+:root {
+    --hacker-green: #00ff00;
+    --matrix-green: #00cc00;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--hacker-green);
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.terminal-header {
+    background: var(--darker-bg);
+    border-bottom: 1px solid var(--hacker-green);
+    padding: 1rem 2rem;
+}
+
+.terminal-header nav a {
+    color: var(--hacker-green);
+    text-decoration: none;
+    margin-right: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.terminal-header nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Glitch effect for headers */
+h1, h2, h3 {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
+/* Post listings */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    border-left: 3px solid var(--hacker-green);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-item h3 {
+    margin-top: 0;
+}
+
+/* Code blocks */
+pre, code {
+    background: var(--darker-bg);
+    border: 1px solid var(--matrix-green);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.terminal-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--hacker-green);
+    margin-top: 4rem;
+}
