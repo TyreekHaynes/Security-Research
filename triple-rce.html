@@ -1,0 +1,61 @@
+---
+layout: default
+title: Triple RCE Compromise
+---
+
+<h1>Triple RCE: Enterprise Defense Bypass</h1>
+
+<div class="meta-info">
+    <p><strong>Discovery Date:</strong> November 6, 2024</p>
+    <p><strong>Disclosure Date:</strong> November 7, 2024</p>
+    <p><strong>Vendor Status:</strong> Patching</p>
+    <p><strong>CVSS Score:</strong> 9.8 (Critical)</p>
+</div>
+
+<h2>Executive Summary</h2>
+<p>During a penetration test against an enterprise-grade target, three distinct remote code execution vectors were discovered and exploited, completely bypassing multiple security layers including WAF protection and endpoint security.</p>
+
+<h2>Three Distinct RCE Vectors</h2>
+<div class="breakthrough">
+    <h3>🔴 Blind Command Injection RCE</h3>
+    <p>Direct OS-level command execution through unsanitized input parameters in custom plugin functionality</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟠 XML-RPC Pingback SSRF → RCE</h3>
+    <p>Server-side request forgery via WordPress XML-RPC leading to internal service compromise and code execution</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟡 XML-RPC Administrative RCE</h3>
+    <p>Authentication bypass through XML-RPC endpoints resulting in full WordPress administrative control and code execution</p>
+</div>
+
+<h2>Technical Impact</h2>
+<ul>
+    <li>100% WAF bypass rate against enterprise security controls</li>
+    <li>Complete infrastructure access achieved through 3 independent paths</li>
+    <li>Multiple RCE vectors providing redundant compromise methods</li>
+    <li>Critical business data exposure demonstrated</li>
+</ul>
+
+<h2>Proof of Concept</h2>
+<p><strong>Example Command Execution:</strong></p>
+<pre><code># Timing-based command confirmation
+curl "https://target.org/?debug=sleep%205"
+
+# File system access demonstration  
+curl "https://target.org/?debug=cat%20config*"</code></pre>
+
+<h2>Remediation</h2>
+<ul>
+    <li>Implement strict input validation and sanitization</li>
+    <li>Disable XML-RPC if not required for functionality</li>
+    <li>Deploy defense-in-depth security controls</li>
+    <li>Conduct regular security assessments</li>
+</ul>
+
+<h2>Business Impact</h2>
+<p>Demonstrated complete infrastructure compromise through three distinct RCE attack vectors, highlighting critical security gaps in enterprise defense systems.</p>
+
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
