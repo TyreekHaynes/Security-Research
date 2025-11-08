@@ -1,24 +1,16 @@
-// Full typing animation for code blocks
+// Terminal animations for code blocks
 document.addEventListener('DOMContentLoaded', function() {
-    const codeBlocks = document.querySelectorAll('pre code');
+    console.log('🔧 Terminal.js loaded - adding animations');
     
-    codeBlocks.forEach(block => {
-        const originalText = block.textContent;
-        block.textContent = '';
+    // Add blinking cursor to all code blocks
+    const codeBlocks = document.querySelectorAll('pre code');
+    console.log('📝 Found', codeBlocks.length, 'code blocks');
+    
+    codeBlocks.forEach((block, index) => {
+        // Add the blinking cursor class
         block.classList.add('typing-cursor');
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                block.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 20); // Slower speed for better visibility
-            } else {
-                block.classList.remove('typing-cursor');
-            }
-        };
-        
-        // Start typing after a short delay
-        setTimeout(typeWriter, 1000);
+        console.log('✨ Added cursor to block', index + 1);
     });
+    
+    console.log('🎉 All animations applied');
 });
