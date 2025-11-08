@@ -140,6 +140,80 @@ pre, code {
     border: 1px solid var(--matrix-green);
 }
 
+/* PORTFOLIO STYLES */
+.portfolio-header {
+    text-align: center;
+    border-bottom: 2px solid var(--hacker-green);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+.portfolio-subtitle {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.impact-item {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+}
+
+.impact-item h3 {
+    margin-top: 0;
+}
+
+.matrix-grid, .business-grid, .research-grid, .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.matrix-header, .sector-header, .research-header, .expertise-header {
+    font-weight: bold;
+    background: rgba(0, 255, 0, 0.2);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.global-impact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.impact-metric {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+}
+
+.portfolio-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--hacker-green);
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 2rem;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .terminal-header nav a {
@@ -153,5 +227,10 @@ pre, code {
     
     .case-study-preview {
         padding: 1rem;
+    }
+    
+    .impact-grid, .matrix-grid, .business-grid, 
+    .research-grid, .expertise-grid, .global-impact {
+        grid-template-columns: 1fr;
     }
 }
