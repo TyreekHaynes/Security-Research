@@ -1,0 +1,12 @@
+title: "Tyreek Haynes - Security Research"
+description: "Vulnerability research, case studies, and security analysis"
+baseurl: ""
+url: "https://github.com/TyreekHaynes"
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - about.md
+  - METHODOLOGY.md
