@@ -94,7 +94,7 @@ Security Control	Bypass Method	Effectiveness
 CloudFlare Enterprise WAF	Wildcard techniques (wp-c*.php)	100%
 Wordfence Premium	Command execution detection evasion	100%
 Custom Security Rules	Author enumeration circumvention	100%
-Network Protections	Outbound filtering identification	Partial
+Network Protections: Outbound filtering, identification, Partial
 🔧 Technical Bypass Details:
 
 # ✅ Successful wildcard bypass
