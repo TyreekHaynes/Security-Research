@@ -84,7 +84,7 @@ curl -X POST \
   "https://target.org/xmlrpc.php"
 Impact: Full WordPress administrative functionality enabling post manipulation, plugin installation, and eventual code execution through various WordPress hooks.
 
-🎯 TRIBLE RCE THREAT MATRIX
+🎯 TRIPBLE RCE THREAT MATRIX
 Vector	Type	Exploitation Path	Compromise Level
 🔴 Blind RCE	Direct Command Injection	Parameter → system() call → OS access	OS Level
 🟠 Pingback RCE	SSRF Chain	XML-RPC → Internal services → RCE	Network Level
