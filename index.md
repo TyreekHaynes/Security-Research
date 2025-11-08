@@ -6,7 +6,6 @@ title: Home
 # 🚀 Tyreek Haynes
 *Security Researcher & Vulnerability Hunter*
 
-## Latest Research
 
 {% for post in site.posts %}
 <div class="post-item">
