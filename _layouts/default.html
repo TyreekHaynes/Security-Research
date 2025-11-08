@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - Tyreek Haynes</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- Add the animations directly in CSS -->
+    <style>
+    /* TERMINAL ANIMATIONS */
+    .typing-cursor {
+        border-right: 2px solid #00ff00 !important;
+        animation: blink 1s infinite !important;
+        padding-right: 2px !important;
+    }
+
+    @keyframes blink {
+        0%, 100% { border-right-color: #00ff00 !important; }
+        50% { border-right-color: transparent !important; }
+    }
+    </style>
 </head>
 <body>
     <header class="terminal-header">
@@ -24,6 +39,27 @@
         <p>&copy; 2025 Tyreek Haynes - Security Research</p>
     </footer>
 
-    <script src="{{ '/assets/js/terminal.js' | relative_url }}"></script>
+    <!-- Add JavaScript directly in HTML -->
+    <script>
+    // Terminal animations - embedded directly
+    console.log('🔧 Loading terminal animations...');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 DOM loaded, adding cursors...');
+        
+        // Wait for page to fully render
+        setTimeout(function() {
+            const codeBlocks = document.querySelectorAll('pre code');
+            console.log('🔍 Found', codeBlocks.length, 'code blocks');
+            
+            codeBlocks.forEach(function(block, index) {
+                console.log('✨ Adding cursor to block', index + 1);
+                block.classList.add('typing-cursor');
+            });
+            
+            console.log('🎉 All cursors added!');
+        }, 500);
+    });
+    </script>
 </body>
 </html>
