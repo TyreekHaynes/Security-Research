@@ -37,7 +37,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 /* Glitch effect for headers */
@@ -61,19 +61,18 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-/* Code blocks - FIXED VERSION */
+/* Code blocks */
 pre, code {
     background: var(--darker-bg);
     border: 1px solid var(--matrix-green);
     border-radius: 4px;
     padding: 1rem;
     overflow-x: auto;
-    white-space: pre-wrap;       /* Allow wrapping */
-    word-wrap: break-word;       /* Break long words */
+    white-space: pre-wrap;
+    word-wrap: break-word;
     max-width: 100%;
 }
 
-/* Specifically for Python code blocks */
 pre code {
     white-space: pre-wrap;
     word-break: break-all;
@@ -217,34 +216,30 @@ hr {
     margin: 3rem 0;
 }
 
-/* Grid styles for tables */
-.matrix-grid, .business-grid, .research-grid, .expertise-grid {
+/* Methodology Pillars */
+.methodology-pillars {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.matrix-header, .sector-header, .research-header, .expertise-header {
-    font-weight: bold;
-    background: rgba(0, 255, 0, 0.2);
-    padding: 1rem;
-    border-radius: 4px;
-}
-
-.global-impact {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     margin: 2rem 0;
 }
 
-.impact-metric {
-    background: rgba(0, 255, 0, 0.1);
+.pillar {
+    background: rgba(0, 255, 0, 0.05);
     padding: 1.5rem;
-    text-align: center;
-    border-radius: 8px;
     border: 1px solid var(--matrix-green);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.pillar h4 {
+    margin-top: 0;
+    color: var(--hacker-green);
+}
+
+.pillar p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
 }
 
 .portfolio-footer {
@@ -277,6 +272,10 @@ hr {
     
     .impact-grid, .matrix-grid, .business-grid, 
     .research-grid, .expertise-grid, .global-impact {
+        grid-template-columns: 1fr;
+    }
+    
+    .methodology-pillars {
         grid-template-columns: 1fr;
     }
 }
