@@ -61,21 +61,78 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-/* Code blocks */
+/* Enhanced Code blocks with Terminal Animation */
 pre, code {
-    background: var(--darker-bg);
+    background: #1a1a1a !important;
     border: 1px solid var(--matrix-green);
+    border-left: 4px solid var(--hacker-green) !important;
     border-radius: 4px;
     padding: 1rem;
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
     max-width: 100%;
+    position: relative;
 }
 
-pre code {
-    white-space: pre-wrap;
-    word-break: break-all;
+/* Terminal header for code blocks */
+pre::before {
+    content: '↳ Terminal';
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background: var(--hacker-green);
+    color: #000;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px 4px 0 0;
+    z-index: 1;
+}
+
+/* Blinking cursor animation */
+.typing-cursor {
+    border-right: 2px solid var(--hacker-green);
+    animation: blink 1s infinite;
+    padding-right: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: var(--hacker-green); }
+    50% { border-color: transparent; }
+}
+
+/* Typewriter effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--hacker-green);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--hacker-green); }
+}
+
+/* Command line prompt style */
+.command-line {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.command-line::before {
+    content: '> ';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--hacker-green);
+    font-weight: bold;
 }
 
 .terminal-footer {
