@@ -1,6 +1,6 @@
 🛡️ **Tyreek Haynes | Elite Security Research Portfolio**
 <p align="center">
-<strong>Zero-Day Hunter • Business Protector • Business Risk Translator</strong><br>
+<strong>Security Researcher • Business Protector • Business Risk Translator</strong><br>
 <em>Transforming vulnerability discovery into actionable business intelligence</em>
 </p>
 
