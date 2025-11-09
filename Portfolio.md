@@ -10,9 +10,9 @@
 
 <div align="center">
 
-| 🔥 Zero-Days | 🌍 Global Reach | 💰 Business Value | 🛡️ Organizations |
+| 🔥 Critical Vulnerability Research | 🌍 Global Reach | 💰 Business Value | 🛡️ Organizations |
 |:---:|:---:|:---:|:---:|
-| 7+ Critical | 6 Continents | $100M+ Prevented | 1,000+ Protected |
+| 7+ Novel Attack Vectors Discovered | 6 Continents | $100M+ Prevented | 1,000+ Protected |
 
 </div>
 
