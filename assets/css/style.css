@@ -314,6 +314,55 @@ hr {
     margin-top: 2rem;
 }
 
+/* Featured Finding Styles */
+.finding-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.meta-info {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--matrix-green);
+}
+
+.critical {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+blockquote {
+    border-left: 4px solid var(--hacker-green);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    background: rgba(0, 255, 0, 0.05);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* Typewriter effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--hacker-green);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--hacker-green); }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .terminal-header nav a {
