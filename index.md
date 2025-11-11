@@ -242,14 +242,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ## Featured Findings
 
-- [Global IAM Exposure](/Security-Research/findings/global-iam-exposure.html)
-- [Infrastructure Supply Chain](/Security-Research/findings/infrastructure-supply-chain.html)
-- [Payment System Bypass](/Security-Research/findings/payment-system-bypass.html)
+### [Zero Authentication Bypass](/findings/jwt-validation-bypass.html)
+**Complete JWT validation failure - any token grants full system access**  
+*CVSS: 9.1 | Critical*
+
+### [Global IAM Exposure](/findings/global-iam-exposure.html)  
+**Cross-account IAM role assumption leading to infrastructure compromise**  
+*CVSS: 8.9 | Critical*
+
+### [Infrastructure Supply Chain](/findings/infrastructure-supply-chain.html)
+**Build system compromise allowing arbitrary code execution**  
+*CVSS: 8.7 | High*
+
+### [Payment System Bypass](/findings/payment-system-bypass.html)
+**Logic flaw allowing unauthorized transactions**  
+*CVSS: 8.5 | High*
 
 {% for post in site.posts %}
 <div class="post-item">
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p>{{ post.date | date: "%B %d, %Y" }}</p>
+    <small>{{ post.date | date: "%B %d, %Y" }}</small>
     <p>{{ post.excerpt }}</p>
 </div>
 {% endfor %}
