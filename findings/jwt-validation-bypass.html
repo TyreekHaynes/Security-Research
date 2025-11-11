@@ -4,17 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZERO AUTHENTICATION BYPASS - Featured Finding</title>
-    <link rel="stylesheet" href="../css/security-analyzer.css">
+    <link rel="stylesheet" href="/css/security-analyzer.css">
+    <style>
+        /* Ensure dark theme for this page */
+        body {
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .finding-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .terminal-header {
+            background: #050505;
+            border-bottom: 1px solid #00ff00;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .terminal-header nav a {
+            color: #00ff00;
+            text-decoration: none;
+            margin-right: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .terminal-header nav a:hover {
+            text-decoration: underline;
+        }
+        
+        h1, h2, h3 {
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            color: #00ff00;
+        }
+        
+        .case-study-preview {
+            border-left: 4px solid #00ff00;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-preview:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        pre {
+            background: #1a1a1a !important;
+            border: 1px solid #00cc00;
+            border-left: 4px solid #00ff00 !important;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            position: relative;
+            color: #00ff00;
+        }
+        
+        pre::before {
+            content: '↳ Terminal';
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background: #00ff00;
+            color: #000;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            z-index: 1;
+        }
+        
+        code {
+            background: #050505;
+            border: 1px solid #00cc00;
+            border-radius: 4px;
+            padding: 0.2rem 0.4rem;
+            font-size: 0.9em;
+            color: #00ff00;
+        }
+        
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
+        .meta-info {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #00cc00;
+        }
+        
+        .critical {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        blockquote {
+            border-left: 4px solid #00ff00;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            background: rgba(0, 255, 0, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00; }
+        }
+        
+        @media (max-width: 768px) {
+            .finding-container {
+                padding: 1rem;
+            }
+            
+            .terminal-header nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="finding-container">
         <header class="terminal-header">
             <nav>
-                <a href="../index.html">Home</a>
-                <a href="../research.html">Research</a>
-                <a href="../findings/">Featured Findings</a>
-                <a href="../methodology.html">Methodology</a>
-                <a href="../portfolio.html">Portfolio</a>
+                <a href="/">Home</a>
+                <a href="/research.html">Research</a>
+                <a href="/findings/">Featured Findings</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/portfolio.html">Portfolio</a>
             </nav>
         </header>
 
