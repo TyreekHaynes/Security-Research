@@ -1,0 +1,76 @@
+
+## Infrastructure SSRF & Source Code Exposure
+
+**File:** `case-studies/infrastructure-ssrf-exposure.md`
+
+---
+layout: case-study
+title: "Critical Infrastructure Exposure via SSRF and Source Code Leakage"
+subtitle: "Complete infrastructure compromise through multiple security failures"
+date: 2024-11-01  
+author: "Your Name"
+tags: [ssrf, infrastructure, source-code, cloud-security]
+cvss: "9.3"
+risk-level: "Critical"
+summary: "Discovered critical vulnerabilities including Git repository exposure, source code directories, and Host Header SSRF allowing complete infrastructure access in a major technology company."
+---
+
+## Discovery
+Comprehensive infrastructure assessment revealed multiple critical security failures across the application stack of a major SaaS platform.
+
+## Technical Details
+### Finding 1: Complete Source Code Exposure
+
+# Git repository accessible
+curl -I "https://app.target.com/.git/config"    # 301 Redirect
+curl -I "https://app.target.com/src/"          # 301 Redirect
+
+Host Header SSRF
+
+# Internal network access via Host header injection
+curl -H "Host: 169.254.169.254" https://gateway.target.com/health
+curl -H "Host: 10.0.0.1:5432" https://gateway.target.com/health # PostgreSQL
+
+Unauthenticated Critical Endpoints
+
+# Health endpoints without authentication
+curl "https://gateway.target.com/health"    # {"status": "ok"}
+
+Exploitation
+Attack Chain
+Reconnaissance: Download complete source code via .git exposure
+
+Initial Access: Use SSRF to interact with internal services
+
+Lateral Movement: Access databases and secret management
+
+Impact Analysis
+Intellectual Property Theft
+Complete source code reconstruction possible
+
+Proprietary algorithms exposed
+
+Internal API architecture revealed
+
+Infrastructure Compromise
+Access to cloud metadata services
+
+Database infrastructure exposure
+
+Management interfaces accessible
+
+Remediation
+Immediate Actions
+
+# Block information disclosure
+location ~ /\.(git|src|app|api|node_modules)/ {
+    deny all;
+    return 404;
+}
+
+Key Lessons
+Implement proper .gitignore and web server configurations
+
+Validate Host headers against allowlists
+
+Require authentication for all internal endpoints
