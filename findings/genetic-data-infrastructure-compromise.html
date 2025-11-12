@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GENETIC DATA COMPROMISE - Featured Finding</title>
-    
-    <!-- NUCLEAR CSS - SAME AS ABOVE -->
+    <link rel="stylesheet" href="/css/security-analyzer.css">
     <style>
+        /* Nuclear CSS override for maximum compatibility */
         * {
             all: unset;
             box-sizing: border-box;
@@ -43,6 +43,10 @@
             text-transform: uppercase;
             font-weight: bold;
             display: inline-block;
+        }
+        
+        .terminal-header nav a:hover {
+            text-decoration: underline;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -186,6 +190,23 @@
             color: #00cc00;
             margin-bottom: 2rem;
         }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .finding-container {
+                padding: 1rem;
+            }
+            
+            .terminal-header nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            
+            pre::before {
+                font-size: 0.7rem;
+                padding: 1px 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,6 +299,15 @@ implementDataEncryption();
 enableAccessLogging(); 
 deployDataLossPrevention();
 conductPrivacyImpactAssessment();</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>📅 DISCLOSURE TIMELINE</h2>
+                <pre><code>2025-11-10 09:00 | Vulnerability discovered
+2025-11-10 09:15 | Emergency report submitted
+2025-11-10 12:30 | Database queries secured
+2025-11-12 18:00 | SSRF protections implemented
+2025-11-12 10:00 | Compliance audit initiated</code></pre>
             </div>
 
             <div class="case-study-preview">
