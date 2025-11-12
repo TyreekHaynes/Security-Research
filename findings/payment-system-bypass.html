@@ -4,7 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAYMENT SYSTEM BYPASS - Featured Finding</title>
-    <style>/* Same CSS as above */</style>
+    <link rel="stylesheet" href="/css/security-analyzer.css">
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .finding-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .terminal-header {
+            background: #050505;
+            border-bottom: 1px solid #00ff00;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .terminal-header nav a {
+            color: #00ff00;
+            text-decoration: none;
+            margin-right: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .terminal-header nav a:hover {
+            text-decoration: underline;
+        }
+        
+        h1, h2, h3 {
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            color: #00ff00;
+        }
+        
+        .case-study-preview {
+            border-left: 4px solid #00ff00;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-preview:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        pre {
+            background: #1a1a1a !important;
+            border: 1px solid #00cc00;
+            border-left: 4px solid #00ff00 !important;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            position: relative;
+            color: #00ff00;
+        }
+        
+        pre::before {
+            content: '↳ Terminal';
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background: #00ff00;
+            color: #000;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            z-index: 1;
+        }
+        
+        code {
+            background: #050505;
+            border: 1px solid #00cc00;
+            border-radius: 4px;
+            padding: 0.2rem 0.4rem;
+            font-size: 0.9em;
+            color: #00ff00;
+        }
+        
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
+        .meta-info {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #00cc00;
+        }
+        
+        .critical {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        blockquote {
+            border-left: 4px solid #00ff00;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            background: rgba(0, 255, 0, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00; }
+        }
+        
+        @media (max-width: 768px) {
+            .finding-container {
+                padding: 1rem;
+            }
+            
+            .terminal-header nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="finding-container">
@@ -35,70 +195,105 @@
 > VULNERABILITY: LOGIC FLAW  
 > IMPACT: UNAUTHORIZED TRANSACTIONS</pre>
                 
-                <p>Critical security assessment of payment infrastructure authentication systems, identifying enhancements needed for financial transaction protection and regulatory compliance.</p>
+                <p>Discovered critical business logic vulnerability in payment processing system allowing attackers to bypass payment verification and execute unauthorized transactions without proper authorization.</p>
             </div>
 
             <div class="case-study-preview">
                 <h2>🔧 TECHNICAL BREAKDOWN</h2>
                 
-                <h3>AUTHENTICATION FRAMEWORK ANALYSIS</h3>
-                <pre><code># PAYMENT FLOW VALIDATION TESTING
-curl -X POST "https://payments.target.com/process" \
-  -H "Content-Type: application/json" \
-  -d '{"amount": 0.01, "user_id": "bypass"}'</code></pre>
+                <h3>PAYMENT VERIFICATION BYPASS</h3>
+                <pre><code># Original payment request
+POST /api/payments
+{
+    "amount": 100.00,
+    "currency": "USD",
+    "payment_method": "card_123",
+    "verification": "required"
+}
 
-                <h3>API SECURITY ASSESSMENT</h3>
-                <pre><code># ENDPOINT PROTECTION TESTING
-curl "https://api.target.com/v1/payments/history" \
-  -H "Authorization: Bearer invalid-token"
-# Returns: Payment transaction data</code></pre>
+# Exploited request - verification bypassed
+POST /api/payments
+{
+    "amount": 0.01,
+    "currency": "USD", 
+    "payment_method": "card_123",
+    "verification": "bypassed"
+}</code></pre>
+
+                <h3>VULNERABILITY POINTS</h3>
+                <ul>
+                    <li>❌ <strong>Amount Manipulation</strong>: Client-side validation only</li>
+                    <li>❌ <strong>Verification Bypass</strong>: Logic flaw in payment flow</li>
+                    <li>❌ <strong>Currency Switching</strong>: No server-side conversion checks</li>
+                    <li>❌ <strong>Payment Method Reuse</strong>: No transaction limits</li>
+                    <li>❌ <strong>Race Conditions</strong>: Concurrent transaction abuse</li>
+                </ul>
             </div>
 
             <div class="case-study-preview">
-                <h2>🎯 BUSINESS IMPACT</h2>
+                <h2>🎯 EXPLOITATION SCENARIOS</h2>
                 
-                <h3>FINANCIAL RISKS</h3>
-                <ul>
-                    <li>Unauthorized transaction processing</li>
-                    <li>Revenue loss through payment bypass</li>
-                    <li>Fraudulent activity enablement</li>
-                    <li>Chargeback and dispute liabilities</li>
-                </ul>
+                <h3>UNAUTHORIZED PURCHASES</h3>
+                <pre><code class="language-javascript">// Payment amount manipulation
+const exploitPayment = () => {
+    // Frontend shows $1.00
+    displayAmount: 1.00,
+    // Backend processes $0.01
+    actualAmount: 0.01,
+    // Verification completely bypassed
+    skipVerification: true
+};</code></pre>
 
-                <h3>COMPLIANCE CONSEQUENCES</h3>
+                <h3>FINANCIAL IMPACT</h3>
                 <ul>
-                    <li>PCI DSS compliance violations</li>
-                    <li>Financial regulatory penalties</li>
-                    <li>Audit failure and certification loss</li>
-                    <li>Partner and merchant agreement breaches</li>
+                    <li>Process unauthorized transactions</li>
+                    <li>Manipulate payment amounts</li>
+                    <li>Bypass currency conversion checks</li>
+                    <li>Execute high-value transactions with low limits</li>
+                    <li>Abuse payment method verification</li>
                 </ul>
             </div>
 
             <div class="case-study-preview">
                 <h2>🛡️ REMEDIATION PROTOCOL</h2>
                 
-                <h3>SECURITY ENHANCEMENTS</h3>
+                <h3>EMERGENCY ACTIONS</h3>
                 <ol>
-                    <li><strong>AUTHENTICATION</strong>: Implement enhanced validation mechanisms</li>
-                    <li><strong>API SECURITY</strong>: Strengthen endpoint protection controls</li>
-                    <li><strong>PAYMENT FLOW</strong>: Conduct security review of transaction processing</li>
-                    <li><strong>COMPLIANCE</strong>: Ensure regulatory alignment</li>
+                    <li><strong>IMMEDIATE</strong>: Disable affected payment endpoints</li>
+                    <li><strong>SHORT-TERM</strong>: Implement server-side amount validation</li>
+                    <li><strong>LONG-TERM</strong>: Comprehensive payment flow security review</li>
                 </ol>
 
-                <h3>TRANSACTION INTEGRITY</h3>
-                <pre><code>// PAYMENT PROCESSING SECURITY
-function validatePaymentRequest(request) {
-    validateAuthentication(request.token);
-    validateAmount(request.amount);
-    validateUserPermissions(request.user_id);
-    validateBusinessRules(request);
-    logSecurityEvent(request);
-}</code></pre>
+                <h3>SECURE PAYMENT PROCESSING</h3>
+                <pre><code class="language-python"># Secure payment validation
+def process_payment(amount, currency, payment_method):
+    # Server-side amount validation
+    if not validate_amount(amount):
+        raise InvalidAmountError()
+    
+    # Currency conversion verification
+    if not validate_currency_conversion(amount, currency):
+        raise CurrencyValidationError()
+    
+    # Payment method verification
+    if not verify_payment_method(payment_method):
+        raise PaymentMethodError()
+    
+    # Process payment securely
+    return secure_payment_processor(amount, currency, payment_method)</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>📅 DISCLOSURE TIMELINE</h2>
+                <pre><code>2024-11-01 13:45 | Vulnerability discovered
+2024-11-01 14:00 | Payment system patched  
+2024-11-01 15:30 | Fraud detection enhanced
+2024-11-02 08:00 | Security audit completed</code></pre>
             </div>
 
             <div class="case-study-preview">
                 <blockquote>
-                    <strong>Payment systems represent the financial lifeblood of organizations. This assessment demonstrates that even sophisticated fintech infrastructure can contain fundamental logic flaws that bypass monetary controls.</strong>
+                    <strong>Payment system vulnerabilities represent direct financial risk to businesses, requiring immediate attention and comprehensive server-side validation to prevent exploitation.</strong>
                 </blockquote>
             </div>
         </main>
@@ -109,5 +304,3 @@ function validatePaymentRequest(request) {
     </div>
 </body>
 </html>
-
-<a href="{{ site.baseurl }}/">← Back to Home</a>
