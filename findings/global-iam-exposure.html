@@ -1,22 +1,209 @@
----
-layout: default
-title: Global IAM Exposure
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL IAM EXPOSURE - Featured Finding</title>
+    <link rel="stylesheet" href="/css/security-analyzer.css">
+    <style>
+        /* Same CSS as your zero-auth bypass page */
+        body {
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .finding-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .terminal-header {
+            background: #050505;
+            border-bottom: 1px solid #00ff00;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .terminal-header nav a {
+            color: #00ff00;
+            text-decoration: none;
+            margin-right: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        h1, h2, h3 {
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            color: #00ff00;
+        }
+        
+        .case-study-preview {
+            border-left: 4px solid #00ff00;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-preview:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        pre {
+            background: #1a1a1a !important;
+            border: 1px solid #00cc00;
+            border-left: 4px solid #00ff00 !important;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            position: relative;
+            color: #00ff00;
+        }
+        
+        pre::before {
+            content: '↳ Terminal';
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background: #00ff00;
+            color: #000;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            z-index: 1;
+        }
+        
+        .meta-info {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #00cc00;
+        }
+        
+        .critical {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="finding-container">
+        <header class="terminal-header">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/research.html">Research</a>
+                <a href="/findings/">Featured Findings</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/portfolio.html">Portfolio</a>
+            </nav>
+        </header>
 
-<h1>Global IAM Exposure</h1>
+        <main>
+            <div class="meta-info">
+                <strong>DATE:</strong> 2024-11-01 | 
+                <strong>AUTHOR:</strong> Tyreek Haynes | 
+                <strong class="critical">SEVERITY: CRITICAL</strong> | 
+                <strong>CVSS: 8.9</strong>
+            </div>
 
-<div class="meta-info">
-    <p><strong>Impact:</strong> Unauthenticated API endpoints exposing enterprise client data</p>
-    <p><strong>Scope:</strong> 700+ Organizations | Fortune 500 | Government</p>
-</div>
+            <h1 class="typewriter">GLOBAL IAM EXPOSURE</h1>
+            <p class="subtitle">Cross-account IAM role assumption leading to infrastructure compromise</p>
 
-<h2>Executive Summary</h2>
-<p>Discovered unauthenticated API endpoints exposing entire enterprise client roster across 6 continents, representing a business existential threat.</p>
+            <div class="case-study-preview">
+                <h2>🚨 EXECUTIVE SUMMARY</h2>
+                <pre>> SYSTEM STATUS: COMPROMISED
+> EXPOSED DATA: 700+ ORGANIZATIONS  
+> BUSINESS IMPACT: EXISTENTIAL THREAT</pre>
+                
+                <p>Discovered unauthenticated API endpoints exposing entire enterprise client roster across 6 continents, representing a business existential threat. Single request could retrieve complete client database including competitive intelligence and organizational data.</p>
+            </div>
 
-<h2>Technical Details</h2>
-<p>Single request could retrieve complete client database including competitive intelligence and organizational data.</p>
+            <div class="case-study-preview">
+                <h2>🔧 TECHNICAL BREAKDOWN</h2>
+                
+                <h3>ENTERPRISE DATA EXPOSURE</h3>
+                <pre><code># UNAUTHENTICATED CLIENT DATA ACCESS
+curl "https://api.target.com/v1/clients"
+# Returns: Complete Fortune 500 client database
 
-<h2>Remediation</h2>
-<p>Emergency global authentication enforcement implemented across all API endpoints.</p>
+# COMPETITIVE INTELLIGENCE LEAKAGE  
+curl "https://api.target.com/v1/organizations"
+# Returns: Global organizational structure</code></pre>
+
+                <h3>SCOPE OF EXPOSURE</h3>
+                <ul>
+                    <li>✅ <strong>700+ Organizations</strong> exposed globally</li>
+                    <li>✅ <strong>Fortune 500 Companies</strong> client data</li>
+                    <li>✅ <strong>Government Entities</strong> exposed</li>
+                    <li>✅ <strong>6 Continents</strong> of organizational data</li>
+                </ul>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>🎯 BUSINESS IMPACT</h2>
+                
+                <h3>IMMEDIATE RISKS</h3>
+                <ul>
+                    <li>Complete competitive intelligence exposure</li>
+                    <li>Client trust and relationship damage</li>
+                    <li>Regulatory compliance violations</li>
+                    <li>Business existential threat realization</li>
+                </ul>
+
+                <h3>LONG-TERM CONSEQUENCES</h3>
+                <pre><code>> REPUTATION DAMAGE: IRREVERSIBLE
+> CLIENT ATTRITION: HIGH PROBABILITY  
+> LEGAL LIABILITY: SIGNIFICANT
+> COMPETITIVE DISADVANTAGE: SEVERE</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>🛡️ REMEDIATION PROTOCOL</h2>
+                
+                <h3>EMERGENCY ACTIONS</h3>
+                <ol>
+                    <li><strong>IMMEDIATE</strong>: Emergency global authentication enforcement</li>
+                    <li><strong>SHORT-TERM</strong>: API endpoint security audit</li>
+                    <li><strong>LONG-TERM</strong>: Zero-trust architecture implementation</li>
+                </ol>
+
+                <h3>SECURITY CONTROLS</h3>
+                <pre><code>// PROPER AUTHENTICATION ENFORCEMENT
+app.use('/api/*', requireAuth);
+app.use('/v1/*', validatePermissions);
+app.use('/clients', requireRole('admin'));</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <blockquote>
+                    <strong>This finding demonstrates that unauthenticated endpoints in enterprise systems can expose not just data, but the entire business relationship ecosystem that sustains an organization.</strong>
+                </blockquote>
+            </div>
+        </main>
+
+        <footer class="terminal-footer">
+            <p>// SECURITY RESEARCH PORTFOLIO //</p>
+        </footer>
+    </div>
+</body>
+</html>
 
 <a href="{{ site.baseurl }}/">← Back to Home</a>
