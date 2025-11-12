@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZERO AUTHENTICATION BYPASS - Featured Finding</title>
-    <link rel="stylesheet" href="/css/security-analyzer.css">
+    
+    <!-- NUCLEAR CSS - OVERRIDE EVERYTHING -->
     <style>
-        /* Ensure dark theme for this page */
+        * {
+            all: unset;
+            box-sizing: border-box;
+        }
+        
         body {
-            background: #0a0a0a;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background: #0a0a0a !important;
+            color: #00ff00 !important;
+            font-family: 'Courier New', monospace !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.6 !important;
+            min-height: 100vh !important;
         }
         
         .finding-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            background: #0a0a0a;
         }
         
         .terminal-header {
@@ -35,15 +42,13 @@
             margin-right: 2rem;
             text-transform: uppercase;
             font-weight: bold;
+            display: inline-block;
         }
         
-        .terminal-header nav a:hover {
-            text-decoration: underline;
-        }
-        
-        h1, h2, h3 {
+        h1, h2, h3, h4, h5, h6 {
             text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
             color: #00ff00;
+            margin: 1rem 0;
         }
         
         .case-study-preview {
@@ -60,9 +65,9 @@
         }
         
         pre {
-            background: #1a1a1a !important;
+            background: #1a1a1a;
             border: 1px solid #00cc00;
-            border-left: 4px solid #00ff00 !important;
+            border-left: 4px solid #00ff00;
             border-radius: 4px;
             padding: 1rem;
             overflow-x: auto;
@@ -71,6 +76,7 @@
             max-width: 100%;
             position: relative;
             color: #00ff00;
+            margin: 1rem 0;
         }
         
         pre::before {
@@ -96,13 +102,6 @@
             color: #00ff00;
         }
         
-        .terminal-footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #00ff00;
-            margin-top: 4rem;
-        }
-        
         .meta-info {
             background: rgba(0, 255, 0, 0.1);
             padding: 1rem;
@@ -116,6 +115,43 @@
             font-weight: bold;
         }
         
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+            margin: 1rem 0;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+            color: #00ff00;
+            display: list-item;
+        }
+        
+        p {
+            color: #00ff00;
+            margin: 1rem 0;
+            display: block;
+        }
+        
+        a {
+            color: #00ff00;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        a:hover {
+            color: #ffff00;
+        }
+        
         blockquote {
             border-left: 4px solid #00ff00;
             padding-left: 1rem;
@@ -124,20 +160,9 @@
             background: rgba(0, 255, 0, 0.05);
             padding: 1rem;
             border-radius: 4px;
+            color: #00ff00;
         }
         
-        ul, ol {
-            background: #050505;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            border: 1px solid #00cc00;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-        }
-        
-        /* Typewriter effect */
         .typewriter {
             overflow: hidden;
             border-right: 2px solid #00ff00;
@@ -156,15 +181,10 @@
             50% { border-color: #00ff00; }
         }
         
-        @media (max-width: 768px) {
-            .finding-container {
-                padding: 1rem;
-            }
-            
-            .terminal-header nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #00cc00;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
