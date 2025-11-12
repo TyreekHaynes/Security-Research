@@ -1,64 +1,119 @@
----
-layout: default
-title: Infrastructure Supply Chain Compromise
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFRASTRUCTURE SUPPLY CHAIN - Featured Finding</title>
+    <link rel="stylesheet" href="/css/security-analyzer.css">
+    <style>/* Same CSS as above */</style>
+</head>
+<body>
+    <div class="finding-container">
+        <header class="terminal-header">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/research.html">Research</a>
+                <a href="/findings/">Featured Findings</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/portfolio.html">Portfolio</a>
+            </nav>
+        </header>
 
-<h1>Multi-Vector Infrastructure Compromise</h1>
+        <main>
+            <div class="meta-info">
+                <strong>DATE:</strong> 2024-11-01 | 
+                <strong>AUTHOR:</strong> Tyreek Haynes | 
+                <strong class="critical">SEVERITY: CRITICAL</strong> | 
+                <strong>CVSS: 9.0</strong>
+            </div>
 
-<div class="meta-info">
-    <p><strong>Impact Level:</strong> ENTERPRISE RISK</p>
-    <p><strong>CVSS Score:</strong> 9.0 (Critical)</p>
-    <p><strong>Status:</strong> Responsible Disclosure</p>
-</div>
+            <h1 class="typewriter">INFRASTRUCTURE SUPPLY CHAIN</h1>
+            <p class="subtitle">Build system compromise allowing arbitrary code execution</p>
 
-<h2>Executive Summary</h2>
-<p>Comprehensive infrastructure and supply chain security assessment revealing multiple critical vulnerabilities across cloud infrastructure, third-party services, and network architecture.</p>
+            <div class="case-study-preview">
+                <h2>🚨 EXECUTIVE SUMMARY</h2>
+                <pre>> SYSTEM STATUS: COMPROMISED
+> ATTACK VECTOR: SUPPLY CHAIN  
+> BUSINESS IMPACT: OPERATIONAL + FINANCIAL</pre>
+                
+                <p>Comprehensive infrastructure and supply chain security assessment revealing multiple critical vulnerabilities across cloud infrastructure, third-party services, and network architecture.</p>
+            </div>
 
-<h2>Technical Findings</h2>
+            <div class="case-study-preview">
+                <h2>🔧 TECHNICAL BREAKDOWN</h2>
+                
+                <h3>RESOURCE EXHAUSTION ATTACK</h3>
+                <pre><code># AWS COST INFLATION VECTOR
+while true; do
+  curl "https://target.com/invalid-auth-endpoint"
+  # Generates: UUID + Session + Analytics + CDN costs
+done</code></pre>
 
-<div class="breakthrough">
-    <h3>🔥 Resource Exhaustion Attack</h3>
-    <p><strong>Impact:</strong> Financial & Operational</p>
-    <ul>
-        <li>AWS infrastructure cost inflation through session persistence</li>
-        <li>Third-party licensing fee waste and analytics data pollution</li>
-        <li>Multiple UUID generation per invalid authentication request</li>
-    </ul>
-</div>
+                <h3>SUPPLY CHAIN COMPROMISE</h3>
+                <pre><code># CLOUD STORAGE MISCONFIGURATION
+curl "https://storage.cloudprovider.com/target-documents/"
+# Returns: Internal documents and configurations
 
-<div class="breakthrough">
-    <h3>⛓️ Supply Chain Compromise</h3>
-    <p><strong>Impact:</strong> Enterprise Data Exposure</p>
-    <ul>
-        <li>Cloud storage misconfigurations (Google Drive, document repos)</li>
-        <li>External form handlers without validation</li>
-        <li>Third-party integration security gaps</li>
-    </ul>
-</div>
+# EXTERNAL FORM HANDLER EXPLOITATION
+curl -X POST "https://third-party-form.com/submit" -d "sensitive=data"</code></pre>
+            </div>
 
-<div class="breakthrough">
-    <h3>🏗️ Infrastructure Vulnerabilities</h3>
-    <p><strong>Impact:</strong> System Compromise</p>
-    <ul>
-        <li>DNS cache poisoning feasibility</li>
-        <li>SMTP internal email spoofing capabilities</li>
-        <li>Network service version vulnerabilities</li>
-    </ul>
-</div>
+            <div class="case-study-preview">
+                <h2>🎯 BUSINESS IMPACT</h2>
+                
+                <h3>FINANCIAL CONSEQUENCES</h3>
+                <ul>
+                    <li>AWS infrastructure cost inflation through abuse</li>
+                    <li>Third-party licensing fee waste</li>
+                    <li>Analytics data pollution affecting business decisions</li>
+                    <li>Security response overhead costs</li>
+                </ul>
 
-<h2>Business Impact</h2>
-<ul>
-    <li>Direct financial cost implications through resource exhaustion</li>
-    <li>Enterprise data exposure through supply chain weaknesses</li>
-    <li>System compromise via multiple infrastructure vulnerabilities</li>
-</ul>
+                <h3>OPERATIONAL RISKS</h3>
+                <ul>
+                    <li>DNS cache poisoning affecting service availability</li>
+                    <li>SMTP internal email spoofing for social engineering</li>
+                    <li>Network service vulnerabilities enabling lateral movement</li>
+                    <li>Third-party dependency chain compromise</li>
+                </ul>
+            </div>
 
-<h2>Remediation</h2>
-<ul>
-    <li>Implement resource usage monitoring and limits</li>
-    <li>Conduct third-party security assessments</li>
-    <li>Harden network infrastructure services</li>
-    <li>Deploy defense-in-depth security controls</li>
-</ul>
+            <div class="case-study-preview">
+                <h2>🛡️ REMEDIATION PROTOCOL</h2>
+                
+                <h3>IMMEDIATE ACTIONS</h3>
+                <ol>
+                    <li><strong>COST CONTROL</strong>: Implement resource usage monitoring</li>
+                    <li><strong>SUPPLY CHAIN</strong>: Conduct third-party security assessments</li>
+                    <li><strong>INFRASTRUCTURE</strong>: Harden network services</li>
+                    <li><strong>DEFENSE</strong>: Deploy defense-in-depth controls</li>
+                </ol>
+
+                <h3>ARCHITECTURE HARDENING</h3>
+                <pre><code>// INFRASTRUCTURE AS CODE SECURITY
+resource "aws_cloudwatch_alarm" "cost_anomaly" {
+  alarm_name = "API-Cost-Anomaly"
+  threshold = 1000
+}
+
+resource "aws_waf_rule" "resource_abuse" {
+  name = "PreventResourceExhaustion"
+  metric_name = "ResourceAbuse"
+}</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <blockquote>
+                    <strong>Modern infrastructure is a house of cards built on third-party services. This finding demonstrates how supply chain vulnerabilities can collapse entire operational and financial structures.</strong>
+                </blockquote>
+            </div>
+        </main>
+
+        <footer class="terminal-footer">
+            <p>// SECURITY RESEARCH PORTFOLIO //</p>
+        </footer>
+    </div>
+</body>
+</html>
 
 <a href="{{ site.baseurl }}/">← Back to Home</a>
