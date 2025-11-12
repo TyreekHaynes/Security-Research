@@ -1,0 +1,68 @@
+---
+layout: default
+title: Genetic Data & Infrastructure Compromise
+---
+
+<h1>Multi-Vector Data & Infrastructure Compromise</h1>
+
+<div class="meta-info">
+    <p><strong>Impact Level:</strong> ENTERPRISE RISK</p>
+    <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
+    <p><strong>Status:</strong> Responsible Disclosure</p>
+</div>
+
+<h2>Executive Summary</h2>
+<p>Comprehensive security assessment revealing multiple critical vulnerabilities enabling complete genetic data extraction, internal infrastructure compromise, and authentication system bypass.</p>
+
+<h2>Technical Findings</h2>
+
+<div class="breakthrough">
+    <h3>🔥 Database Extraction via SQL Injection</h3>
+    <p><strong>Impact:</strong> Genetic & Customer Data Exposure</p>
+    <ul>
+        <li>Full database extraction via UNION-based SQL injection</li>
+        <li>Database version, user, and schema disclosure</li>
+        <li>Customer email addresses and personal information exposed</li>
+        <li>Multiple vulnerable parameters (id, user, user_id, email)</li>
+    </ul>
+</div>
+
+<div class="breakthrough">
+    <h3>⛓️ Internal Infrastructure Access</h3>
+    <p><strong>Impact:</strong> Enterprise Network Compromise</p>
+    <ul>
+        <li>SSRF vulnerabilities enabling internal network enumeration</li>
+        <li>AWS metadata service access potential</li>
+        <li>Internal service discovery and port scanning</li>
+        <li>Localhost and internal IP range access confirmed</li>
+    </ul>
+</div>
+
+<div class="breakthrough">
+    <h3>🏗️ Authentication Mechanism Bypass</h3>
+    <p><strong>Impact:</strong> System Compromise</p>
+    <ul>
+        <li>Exposed API endpoints without authentication</li>
+        <li>OAuth token endpoint accessible without validation</li>
+        <li>Multiple grant types exploitable (client_credentials, password)</li>
+        <li>User profile and account data accessible unauthenticated</li>
+    </ul>
+</div>
+
+<h2>Business Impact</h2>
+<ul>
+    <li>Genetic data exposure violating privacy regulations (GDPR, HIPAA)</li>
+    <li>Complete customer database compromise</li>
+    <li>Internal infrastructure and cloud environment access</li>
+    <li>Authentication system complete bypass</li>
+</ul>
+
+<h2>Remediation</h2>
+<ul>
+    <li>Implement parameterized queries and input validation</li>
+    <li>Deploy WAF rules to block SQL injection patterns</li>
+    <li>Implement URL validation and internal IP blocking for SSRF</li>
+    <li>Add proper authentication to all API endpoints</li>
+</ul>
+
+<a href="{{ site.baseurl }}/">← Back to Home</a>
