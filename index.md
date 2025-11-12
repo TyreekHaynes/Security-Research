@@ -246,6 +246,10 @@ document.addEventListener('DOMContentLoaded', function() {
 **Complete JWT validation failure - any token grants full system access**  
 *CVSS: 9.1 | Critical*
 
+### [Genetic Data Compromise](/findings/genetic-data-infrastructure-compromise.html)
+**SQL injection & SSRF leading to complete genetic data exposure**  
+*CVSS: 9.1 | Critical*
+
 ### [Global IAM Exposure](/findings/global-iam-exposure.html)  
 **Cross-account IAM role assumption leading to infrastructure compromise**  
 *CVSS: 8.9 | Critical*
