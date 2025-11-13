@@ -1,0 +1,63 @@
+---
+layout: default
+title: Financial Platform Auth Bypass
+---
+
+<h1>Financial Platform: Complete Authentication Bypass</h1>
+
+<div class="meta-info">
+    <p><strong>Discovery Date:</strong> November 2025</p>
+    <p><strong>Disclosure Date:</strong> November 2025</p>
+    <p><strong>Vendor Status:</strong> Patching</p>
+    <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
+</div>
+
+<h2>Executive Summary</h2>
+<p>During security testing of a financial investment platform, I discovered complete authentication bypass vulnerabilities allowing unauthenticated access to administrative functions, user financial data, and internal infrastructure through header injection and SSRF attacks.</p>
+
+<h2>Multi-Vector Infrastructure Compromise</h2>
+<div class="breakthrough">
+    <h3>🔴 Header Injection Auth Bypass</h3>
+    <p>Administrative access granted through simple header injection without credentials</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟠 SSRF to Cloud Metadata</h3>
+    <p>Server-side request forgery enabling access to cloud infrastructure and internal services</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟡 Exposed Financial APIs</h3>
+    <p>Sensitive financial endpoints accessible without authentication including user portfolios and transactions</p>
+</div>
+
+<h2>Technical Impact</h2>
+<ul>
+    <li>Complete administrative access without authentication</li>
+    <li>Financial data exposure including portfolios and transactions</li>
+    <li>Cloud metadata and internal service access</li>
+    <li>WAF bypass through multiple attack vectors</li>
+</ul>
+
+<h2>Proof of Concept</h2>
+<p><strong>Example Authentication Bypass:</strong></p>
+<pre><code># Admin access through header injection
+curl -H "X-API-Key: admin" -H "X-Role: administrator" \
+  "https://platform.com/api/v1/admin/users"
+
+# SSRF to cloud metadata
+curl -H "Host: 169.254.169.254" \
+  "https://platform.com/api/health"</code></pre>
+
+<h2>Remediation</h2>
+<ul>
+    <li>Implement proper authentication middleware validation</li>
+    <li>Deploy header sanitization and whitelisting</li>
+    <li>Enforce cloud metadata endpoint blocking</li>
+    <li>Conduct comprehensive API security testing</li>
+</ul>
+
+<h2>Business Impact</h2>
+<p>Demonstrated complete infrastructure compromise of a financial platform, exposing sensitive user financial data and administrative controls through critical authentication bypass vulnerabilities.</p>
+
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
