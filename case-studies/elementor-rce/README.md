@@ -72,3 +72,5 @@ Vendor Notified: Elementor Security Team
 CVE Requested: MITRE assignment process initiated
 
 Timeline: Following coordinated disclosure practices
+
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
