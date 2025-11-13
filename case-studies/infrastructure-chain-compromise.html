@@ -1,0 +1,62 @@
+---
+layout: default
+title: Infrastructure Chain Compromise
+---
+
+<h1>Infrastructure Chain Compromise: Source Exposure & SSRF</h1>
+
+<div class="meta-info">
+    <p><strong>Discovery Date:</strong> October 15, 2025</p>
+    <p><strong>Disclosure Date:</strong> October 16, 2025</p>
+    <p><strong>Vendor Status:</strong> Patched</p>
+    <p><strong>CVSS Score:</strong> 9.3 (Critical)</p>
+</div>
+
+<h2>Executive Summary</h2>
+<p>During infrastructure security testing, a critical vulnerability chain was discovered combining source code exposure with server-side request forgery, leading to complete infrastructure compromise of an enterprise SaaS platform.</p>
+
+<h2>Three-Stage Attack Chain</h2>
+<div class="breakthrough">
+    <h3>🔴 Source Code Exposure</h3>
+    <p>Complete Git repository and application source code accessible through misconfigured web server directives</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟠 Host Header SSRF</h3>
+    <p>Server-side request forgery enabling internal network reconnaissance and cloud metadata access</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟡 Internal Service Compromise</h3>
+    <p>Direct access to database services, secret management, and orchestration platforms through internal network pivoting</p>
+</div>
+
+<h2>Technical Impact</h2>
+<ul>
+    <li>Complete intellectual property exposure through source code access</li>
+    <li>Internal network reconnaissance and service enumeration</li>
+    <li>Cloud metadata and secret management system access</li>
+    <li>Database infrastructure compromise demonstrated</li>
+</ul>
+
+<h2>Proof of Concept</h2>
+<p><strong>Example Infrastructure Access:</strong></p>
+<pre><code># Source code exposure verification
+curl -I "https://app.target.com/.git/config"
+
+# Internal network access via SSRF
+curl -H "Host: 169.254.169.254" \
+  "https://gateway.target.com/health"</code></pre>
+
+<h2>Remediation</h2>
+<ul>
+    <li>Implement proper web server configuration to block source code exposure</li>
+    <li>Deploy Host header validation and SSRF protection mechanisms</li>
+    <li>Enhance network segmentation and internal service authentication</li>
+    <li>Establish secure development and deployment practices</li>
+</ul>
+
+<h2>Business Impact</h2>
+<p>Demonstrated complete infrastructure compromise through chained vulnerabilities, exposing critical intellectual property, internal services, and customer data across the entire platform architecture.</p>
+
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
