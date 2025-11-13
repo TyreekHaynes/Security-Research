@@ -1,0 +1,75 @@
+---
+layout: default
+title: DNS Infrastructure Red Team Operation
+---
+
+<h1>Enterprise DNS Infrastructure: Complete Compromise & Persistent Access</h1>
+
+<div class="meta-info">
+    <p><strong>Operation Date:</strong> November 2025</p>
+    <p><strong>Duration:</strong> 3-week engagement</p>
+    <p><strong>Target:</strong> Fortune 500 Infrastructure</p>
+    <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
+</div>
+
+<h2>Executive Summary</h2>
+<p>During a red team engagement, I achieved complete compromise of enterprise DNS infrastructure through PowerDNS vulnerabilities, establishing persistent command and control via DNS tunneling that bypassed all traditional security controls and maintained indefinite access.</p>
+
+<h2>Multi-Phase Infrastructure Takeover</h2>
+<div class="breakthrough">
+    <h3>🔴 PowerDNS 4.9.2 Exploitation</h3>
+    <p>DNS cache poisoning and transaction ID prediction enabling infrastructure control</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟠 Iodine DNS Tunneling C2</h3>
+    <p>Persistent command and control channel established through DNS protocol</p>
+</div>
+
+<div class="breakthrough">
+    <h3>🟡 Enterprise Routing Compromise</h3>
+    <p>Virtual network infrastructure deployment with enterprise routing table modification</p>
+</div>
+
+<h2>Technical Impact</h2>
+<ul>
+    <li>Complete DNS infrastructure control</li>
+    <li>Persistent C2 channel resistant to security patches</li>
+    <li>Enterprise routing table modification</li>
+    <li>Detection evasion through DNS protocol abuse</li>
+</ul>
+
+<h2>Operational Proof of Concept</h2>
+<p><strong>DNS C2 Infrastructure Deployment:</strong></p>
+<pre><code># C2 Server Establishment
+sudo iodined -f -c -P OperationPhoenix 10.0.0.1 target-domain.com
+
+# Infrastructure Validation
+utun7: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1130
+inet 10.0.0.1 --> 10.0.0.1 netmask 0xffffffe0
+Listening to dns for domain target-domain.com
+
+# Enterprise Routing Control
+netstat -nr | grep 10.0.0
+10/27 → 10.0.0.1 (utun7)</code></pre>
+
+<h2>Detection Evasion Capabilities</h2>
+<ul>
+    <li>Encrypted communications blending with legitimate DNS traffic</li>
+    <li>Bypass of network intrusion detection systems</li>
+    <li>Evasion of endpoint protection platforms</li>
+    <li>Resistance to web application firewall rules</li>
+</ul>
+
+<h2>Remediation Complexity</h2>
+<ul>
+    <li>Requires complete DNS infrastructure overhaul</li>
+    <li>Implementation of specialized DNS monitoring</li>
+    <li>Cryptographic analysis of DNS traffic patterns</li>
+    <li>Continuous threat hunting for established persistence</li>
+</ul>
+
+<h2>Business Impact</h2>
+<p>Demonstrated indefinite enterprise compromise through DNS infrastructure control, establishing persistent access that survives security investments and requires complete infrastructure redesign for effective remediation.</p>
+
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
