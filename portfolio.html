@@ -1,103 +1,365 @@
-<div class="portfolio-container">
-    <div class="portfolio-header">
-        <h1>🛡️ Tyreek Haynes | Security Research & Offensive Security</h1>
-        <p class="portfolio-subtitle">
-            <strong>Security Researcher • Penetration Tester • Business Risk Translator</strong><br>
-            <em>Turning real-world vulnerabilities into measurable security improvements</em>
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyreek Haynes | Security Research & Offensive Security</title>
+    <style>
+        /* Futuristic Terminal Theme */
+        :root {
+            --hacker-green: #00ff00;
+            --matrix-green: #00cc00;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+        }
+
+        body {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.08) 0%, transparent 50%),
+                var(--dark-bg);
+            color: var(--hacker-green);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .portfolio-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: hidden;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            border-bottom: 2px solid var(--hacker-green);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .portfolio-header::before {
+            content: '↳';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--hacker-green);
+            font-size: 1.5rem;
+        }
+
+        .name-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--matrix-green);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid var(--hacker-green);
+            padding-left: 1rem;
+            background: rgba(0, 255, 0, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        /* Impact Grid */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .impact-item {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--matrix-green);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .impact-item:hover {
+            background: rgba(0, 255, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 255, 0, 0.2);
+        }
+
+        .impact-item::before {
+            content: '▶';
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: var(--hacker-green);
+        }
+
+        /* Featured Research */
+        .research-section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+            border-bottom: 1px solid var(--matrix-green);
+            padding-bottom: 1rem;
+        }
+
+        .case-study-preview {
+            border-left: 4px solid var(--hacker-green);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .case-study-preview:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+        }
+
+        .case-study-preview h3 {
+            margin-top: 0;
+            color: var(--hacker-green);
+            text-shadow: 1px 1px 0px #ff00ff;
+        }
+
+        .impact-badge {
+            display: inline-block;
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            border: 1px solid #ff4444;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: var(--hacker-green);
+            color: #000;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            background: var(--matrix-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Methodology */
+        .methodology-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .pillar {
+            background: rgba(0, 255, 0, 0.05);
+            padding: 1.5rem;
+            border: 1px solid var(--matrix-green);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .pillar h4 {
+            margin-top: 0;
+            color: var(--hacker-green);
+            text-shadow: 1px 1px 0px #ff00ff;
+        }
+
+        /* Footer */
+        .portfolio-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--hacker-green);
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--matrix-green);
+        }
+
+        /* Glitch effect for headers */
+        h1, h2, h3 {
+            text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+        }
+
+        /* Terminal animations */
+        .typing-cursor {
+            border-right: 2px solid var(--hacker-green);
+            animation: blink 1s infinite;
+            padding-right: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: var(--hacker-green); }
+            50% { border-color: transparent; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .portfolio-container {
+                padding: 1rem;
+            }
+            
+            .name-title {
+                font-size: 2rem;
+            }
+            
+            .impact-grid,
+            .methodology-pillars {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-preview {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- Header Section -->
+        <header class="portfolio-header">
+            <h1 class="name-title">🛡️ Tyreek Haynes</h1>
+            <div class="subtitle">Security Research & Offensive Security</div>
+            <div class="tagline">
+                Security Researcher • Penetration Tester • Business Risk Translator<br>
+                Turning real-world vulnerabilities into measurable security improvements
+            </div>
+        </header>
+
+        <!-- Impact Overview -->
+        <section class="impact-overview">
+            <h2 class="section-title">🚀 Impact Overview</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h3>🔎 Vulnerabilities Discovered</h3>
+                    <p>Verified RCE, Auth Bypass, Cloud Misconfigurations</p>
+                </div>
+                <div class="impact-item">
+                    <h3>🌍 Organizations Helped</h3>
+                    <p>Across Legal, Education, Nonprofit, and Small Business sectors</p>
+                </div>
+                <div class="impact-item">
+                    <h3>💰 Business Outcomes</h3>
+                    <p>Reduced operational risk and prevented service disruption</p>
+                </div>
+                <div class="impact-item">
+                    <h3>🛡️ Responsible Disclosure</h3>
+                    <p>Multiple coordinated vendor fixes</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Research -->
+        <section class="research-section">
+            <h2 class="section-title">🎯 Featured Research</h2>
+            
+            <div class="case-study-preview">
+                <h3>🔥 Cloudflare + WordPress WAF Bypass</h3>
+                <p><span class="impact-badge">HIGH IMPACT</span> Allowed upload and execution of malicious payloads</p>
+                <p><strong>Scope:</strong> Affected multiple production deployments</p>
+                <p><strong>Discovery:</strong> Improper request validation enabling WAF evasion</p>
+                <p><strong>Outcome:</strong> Ruleset updates and hardening implemented</p>
+                <a href="#" class="read-more">View Case Study →</a>
+            </div>
+
+            <div class="case-study-preview">
+                <h3>🏗️ Elementor RCE (CVE-Pending)</h3>
+                <p><span class="impact-badge">CRITICAL</span> Unauthenticated remote code execution</p>
+                <p><strong>Discovery:</strong> Command injection in file upload handling</p>
+                <p><strong>Outcome:</strong> Vendor notified and mitigation deployed</p>
+                <a href="#" class="read-more">View Case Study →</a>
+            </div>
+
+            <div class="case-study-preview">
+                <h3>💰 Authentication Bypass on Financial Platform</h3>
+                <p><span class="impact-badge">HIGH RISK</span> Unauthorized account access</p>
+                <p><strong>Discovery:</strong> Broken token validation logic</p>
+                <p><strong>Outcome:</strong> MFA rollout and access control fix</p>
+                <a href="#" class="read-more">View Case Study →</a>
+            </div>
+        </section>
+
+        <!-- Research Approach -->
+        <section class="methodology-section">
+            <h2 class="section-title">⚡ Research Approach</h2>
+            <div class="methodology-pillars">
+                <div class="pillar">
+                    <h4>📡 Attack Surface Mapping</h4>
+                    <p>DNS, Cloud services, applications</p>
+                </div>
+                <div class="pillar">
+                    <h4>🔍 Endpoint Discovery</h4>
+                    <p>API enumeration and analysis</p>
+                </div>
+                <div class="pillar">
+                    <h4>⚡ Exploit Development</h4>
+                    <p>Proof-of-concept validation</p>
+                </div>
+                <div class="pillar">
+                    <h4>💼 Risk Translation</h4>
+                    <p>Technical → business impact communication</p>
+                </div>
+                <div class="pillar">
+                    <h4>🛡️ Remediation Support</h4>
+                    <p>Fix guidance and hardening</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Statement -->
+        <section class="mission-section">
+            <div class="case-study-preview" style="text-align: center; background: rgba(0, 255, 0, 0.08);">
+                <h3>🚀 Research with Real-World Impact</h3>
+                <p>Focused on actionable findings and measurable security improvements</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="portfolio-footer">
+            <div class="disclaimer">
+                © 2025 Tyreek Haynes | All research conducted under authorization and responsible disclosure
+            </div>
+        </footer>
     </div>
-
-    <hr>
-
-    <section class="executive-snapshot">
-        <h2>🚀 Impact Overview</h2>
-        <div class="impact-grid">
-            <div class="impact-item">
-                <h3>🔎 Vulnerabilities Discovered</h3>
-                <p>Verified RCE, Auth Bypass, Cloud Misconfigurations</p>
-            </div>
-            <div class="impact-item">
-                <h3>🌍 Organizations Helped</h3>
-                <p>Across Legal, Education, Nonprofit, and Small Business sectors</p>
-            </div>
-            <div class="impact-item">
-                <h3>💰 Business Outcomes</h3>
-                <p>Reduced operational risk and prevented service disruption</p>
-            </div>
-            <div class="impact-item">
-                <h3>🛡️ Responsible Disclosure</h3>
-                <p>Multiple coordinated vendor fixes</p>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="research-breakthroughs">
-        <h2>🎯 Featured Research</h2>
-
-        <div class="breakthrough">
-            <h3>🔥 Cloudflare + WordPress WAF Bypass</h3>
-            <ul>
-                <li><strong>Impact:</strong> Allowed upload and execution of malicious payloads</li>
-                <li><strong>Scope:</strong> Affected multiple production deployments</li>
-                <li><strong>Discovery:</strong> Improper request validation enabling WAF evasion</li>
-                <li><strong>Outcome:</strong> Ruleset updates and hardening implemented</li>
-                <li><a href="/case-studies/alsco-rce-bypass.html">View Case Study →</a></li>
-            </ul>
-        </div>
-
-        <div class="breakthrough">
-            <h3>🏗️ Elementor RCE (CVE-Pending)</h3>
-            <ul>
-                <li><strong>Impact:</strong> Unauthenticated remote code execution</li>
-                <li><strong>Discovery:</strong> Command injection in file upload handling</li>
-                <li><strong>Outcome:</strong> Vendor notified and mitigation deployed</li>
-                <li><a href="/case-studies/elementor-rce.html">View Case Study →</a></li>
-            </ul>
-        </div>
-
-        <div class="breakthrough">
-            <h3>💰 Authentication Bypass on Financial Platform</h3>
-            <ul>
-                <li><strong>Impact:</strong> Unauthorized account access</li>
-                <li><strong>Discovery:</strong> Broken token validation logic</li>
-                <li><strong>Outcome:</strong> MFA rollout and access control fix</li>
-                <li><a href="/case-studies/financial-platform-auth-bypass.html">View Case Study →</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="methodology">
-        <h2>⚡ Research Approach</h2>
-
-        <div class="methodology-pillars">
-            <div class="pillar">
-                <h4>📡 Attack Surface Mapping</h4>
-                <p>DNS, Cloud services, applications</p>
-            </div>
-            <div class="pillar">
-                <h4>🔍 Endpoint Discovery</h4>
-                <p>API enumeration and analysis</p>
-            </div>
-            <div class="pillar">
-                <h4>⚡ Exploit Development</h4>
-                <p>Proof-of-concept validation</p>
-            </div>
-            <div class="pillar">
-                <h4>💼 Risk Translation</h4>
-                <p>Technical → business impact communication</p>
-            </div>
-            <div class="pillar">
-                <h4>🛡️ Remediation Support</h4>
-                <p>Fix guidance and hardening</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="portfolio-footer">
-        <h3>🚀 Research with Real-World Impact</h3>
-        <p>Focused on actionable findings and measurable security improvements</p>
-        <p class="disclaimer">© 2025 Tyreek Haynes | All research conducted under authorization and responsible disclosure</p>
-    </div>
-</div>
+</body>
+</html>
