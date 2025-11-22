@@ -344,6 +344,35 @@ blockquote {
     border-radius: 4px;
 }
 
+/* Cloud WAF Bypass Featured Section */
+.cloud-waf-bypass {
+    border-left: 4px solid var(--hacker-green);
+    background: rgba(0, 255, 0, 0.05);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+    transition: all 0.3s ease;
+}
+
+.cloud-waf-bypass:hover {
+    background: rgba(0, 255, 0, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+}
+
+.cloud-waf-bypass h2,
+.cloud-waf-bypass h3 {
+    margin-top: 0;
+    color: var(--hacker-green);
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
+.cloud-waf-bypass p {
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
 /* Typewriter effect */
 .typewriter {
     overflow: hidden;
