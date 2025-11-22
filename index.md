@@ -254,14 +254,6 @@ document.addEventListener('DOMContentLoaded', function() {
 **Cross-account IAM role assumption leading to infrastructure compromise**  
 *CVSS: 8.9 | Critical*
 
-### [Infrastructure Supply Chain](/findings/infrastructure-supply-chain.html)
-**Build system compromise allowing arbitrary code execution**  
-*CVSS: 8.7 | High*
-
-### [Payment System Bypass](/findings/payment-system-bypass.html)
-**Logic flaw allowing unauthorized transactions**  
-*CVSS: 8.5 | High*
-
 {% for post in site.posts %}
 <div class="post-item">
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
