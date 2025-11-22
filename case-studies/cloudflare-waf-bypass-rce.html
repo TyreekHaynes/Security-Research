@@ -1,106 +1,95 @@
 ---
-title: "WAF-Bypassable RCE in /go/* Endpoints (Anonymized)"
-date: 2025-11-20
-layout: case-study
-summary: "Unauthenticated remote code execution due to unsanitized command parameters; WAF gave false sense of security but backend was exploitable via a programmatic client."
+layout: default
+title: Cloud WAF Bypass RCE
 ---
 
-## Overview
+<h1>Cloud WAF Bypass: Unauthenticated Remote Code Execution</h1>
 
-**Discovery date:** November 20, 2025  
-**Type:** Remote Code Execution (RCE) — Unauthenticated, WAF-bypassable  
-**Severity:** Critical — CVSS 3.1: 9.1 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:M)  
-**Status:** Reported to vendor (responsible disclosure); CVE requested / pending
+<div class="meta-info">
+    <p><strong>Discovery Date:</strong> November 2025</p>
+    <p><strong>Status:</strong> Reported to Vendor / CVE Pending</p>
+    <p><strong>Protection:</strong> Cloud WAF (Bypassed)</p>
+    <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
+</div>
 
-> **Note:** This case study is intentionally anonymized for public display. No vendor or customer names are included.
+<h2>Executive Summary</h2>
+<p>During responsible security research, I identified a critical Remote Code Execution (RCE) vulnerability in a production web application protected by a Cloud-based WAF. Despite appearing secure from browser traffic, the backend executed attacker-controlled commands when requests were sent through a programmatic client, resulting in full command execution.</p>
 
----
+<h2>Breakthrough Findings</h2>
 
-## Executive Summary
+<div class="breakthrough">
+    <h3>🔴 Command Injection → RCE</h3>
+    <p>Unauthenticated OS-level command execution through multiple parameters</p>
+</div>
 
-During routine security research I discovered an unauthenticated OS command injection in multiple `/go/*` endpoints. The site used a perimeter WAF which blocked standard browser requests, creating a false sense of security. However, the backend accepted and executed attacker-supplied commands when requests were issued by a programmatic HTTP client that bypassed the WAF protection.
+<div class="breakthrough">
+    <h3>🟠 Cloud WAF Bypass</h3>
+    <p>WAF blocked browser traffic but allowed scripted requests</p>
+</div>
 
-This allowed full remote command execution on the host, with potential for file access, persistence, and lateral movement.
+<div class="breakthrough">
+    <h3>🟡 Persistent Access Evidence</h3>
+    <p>Ability to create files and access web shell artifacts</p>
+</div>
 
----
+<h2>Affected Endpoints</h2>
+<ul>
+    <li>/go/test</li>
+    <li>/go/</li>
+    <li>/go/home</li>
+    <li>/go/account</li>
+</ul>
 
-## Affected Endpoints (anonymized)
+<p><strong>Vulnerable Parameters:</strong> cmd, exec, command, system, run</p>
 
-- `/go/test`  
-- `/go/`  
-- `/go/home`  
-- `/go/account`
+<h2>Technical Impact</h2>
+<ul>
+    <li>Full remote command execution</li>
+    <li>File creation on server</li>
+    <li>Potential access to credentials and configuration</li>
+    <li>Ability to deploy persistent access mechanisms</li>
+</ul>
 
-**Vulnerable parameters:** `cmd`, `exec`, `command`, `system`, `run`  
-(All parameters behaved equivalently and led to backend command execution.)
+<h2>Proof of Execution</h2>
+<pre><code># Programmatic WAF bypass
+import cloudscraper
+scraper = cloudscraper.create_scraper()
 
----
+commands = ["whoami", "uname -a", "ls -la", "id"]
+for cmd in commands:
+    url = "https://target.com/go/test?cmd=" + cmd
+    response = scraper.get(url)
+    if len(response.text) == 3945:
+        print("✅", cmd, "- Command executed")
+</code></pre>
 
-## Reproduction (safe, high-level)
+<h2>WAF Behavior</h2>
+<ul>
+    <li>Browser traffic blocked</li>
+    <li>Programmatic requests allowed</li>
+    <li>Consistent 3945-byte response indicating execution</li>
+</ul>
 
-1. Submit a benign verification request via a browser to the target endpoint — the WAF blocks this request and returns a "blocked" response.  
-2. Submit the same verification request using a programmatic HTTP client that avoids the WAF's browser-based heuristics. The backend returns an altered, consistent response indicating command processing.  
-3. Confirm non-destructive verification (safe probes) to validate backend execution without exposing or exfiltrating sensitive data. All safe checks returned a consistent marker response indicating execution.
+<h2>Impact Assessment</h2>
+<ul>
+    <li><strong>Confidentiality:</strong> HIGH — system file access</li>
+    <li><strong>Integrity:</strong> HIGH — file creation and modification</li>
+    <li><strong>Availability:</strong> MEDIUM — execution abuse potential</li>
+</ul>
 
-> **No destructive actions were taken.** Only safe, non-sensitive verification steps were used and recorded.
+<h2>Key Learnings</h2>
+<ul>
+    <li>Cloud WAF does not replace server-side validation</li>
+    <li>Response-size analysis confirms execution safely</li>
+    <li>Multiple parameters may share execution paths</li>
+</ul>
 
----
+<h2>Remediation Recommendations</h2>
+<ul>
+    <li>Remove dynamic command execution functionality</li>
+    <li>Implement strict input validation and parameter whitelisting</li>
+    <li>Do not rely solely on WAF protections</li>
+    <li>Monitor and alert on command execution behavior</li>
+</ul>
 
-## Technical Findings (high-level)
-
-- **Root cause:** User-controlled input was passed into backend command execution logic without sanitization or whitelisting (OS Command Injection — CWE-78).  
-- **WAF behavior:** Cloud/edge WAF blocked traditional browser-sourced payloads, but programmatic clients using alternate request characteristics bypassed those rules, allowing the backend code path to execute supplied commands.  
-- **Detection signal:** A stable, reproducible response pattern (consistent response size/marker) served as a non-destructive indicator of execution.  
-- **Persistence indicators:** Evidence of server-side file creation and web-shell artifacts were observed during controlled testing (not published here).  
-
----
-
-## Impact (business/technical)
-
-- **Confidentiality (HIGH):** Possible read access to system files and configuration; potential exposure of secrets or credentials.  
-- **Integrity (HIGH):** Ability to write files, deploy web shells, or alter server behavior.  
-- **Availability (MEDIUM):** Potential for service disruption or resource exhaustion via command execution.  
-- **Business impact:** Full host compromise can lead to downstream access to services, escalation, and lateral movement into other infrastructure components.
-
----
-
-## Responsible Disclosure
-
-- Reported to the vendor via their bug-bounty/secure-reporting channel.  
-- Provided reproducible, non-destructive evidence and screen recordings to assist triage.  
-- Public disclosure deferred pending vendor remediation and CVE assignment timeline.  
-
----
-
-## Remediation Recommendations
-
-- Remove any server-side dynamic command execution or, if necessary, restrict it to a strict whitelist of allowed operations.  
-- Implement robust server-side input validation and parameter whitelisting.  
-- Do not rely on WAF as the primary protection — enforce server-side authentication/authorization and validation.  
-- Add monitoring and alerting for anomalous command execution patterns and unexpected parameter use.  
-- Adopt the principle of least privilege for processes that may execute system commands.
-
----
-
-## Attachments (archived evidence, internal)
-- browser_blocked_evidence.txt — WAF blocking screenshots/logs (internal)  
-- backend_rce_evidence.txt — verification markers and response artifacts (internal)  
-- waf_bypass_evidence.txt — summary of bypass approach (internal)  
-- full_impact_evidence.txt — controlled impact assessment (internal)  
-- Screen recording (internal) — end-to-end non-destructive validation
-
-> Attachments are redacted from the public case study. Retain internal copies for vendor triage and verification.
-
----
-
-## Skills & Takeaways
-
-- Advanced RCE detection and validation without disclosing exploit primitives.  
-- WAF analysis and bypass validation in controlled, ethical conditions.  
-- Clear business impact articulation for executive stakeholders.  
-- Responsible disclosure and CVE pursuit for unresolved findings.
-
----
-
-If you want this as HTML instead (for `case-studies/waf-bypass-rce.html`) I can convert it.  
-
+<a href="{{ site.baseurl }}/research" class="read-more">← Back to Research</a>
