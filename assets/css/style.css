@@ -212,6 +212,7 @@ code {
     max-width: 1000px;
     margin: 0 auto;
     overflow-x: hidden;
+    padding: 2rem;
 }
 
 .portfolio-header {
