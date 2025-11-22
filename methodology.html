@@ -5,25 +5,61 @@ title: Methodology
 
 <h1>Security Assessment Methodology</h1>
 
-<!-- Copy your entire METHODOLOGY.md content here -->
+<p><em>All testing is conducted under written authorization and follows strict ethical and legal guidelines.</em></p>
+
 <div class="methodology-content">
+
     <h2>Technical Security Assessment Approach</h2>
-    
-    <h3>Reconnaissance & Information Gathering</h3>
+
+    <hr>
+
+    <h3>1. Reconnaissance & Information Gathering</h3>
     <ul>
-        <li>Subdomain enumeration and discovery</li>
-        <li>Technology stack fingerprinting</li>
-        <li>API endpoint mapping</li>
-        <li>Infrastructure analysis</li>
+        <li>Subdomain enumeration and external attack surface mapping</li>
+        <li>Technology stack fingerprinting (CMS, frameworks, cloud services)</li>
+        <li>API endpoint discovery and documentation review</li>
+        <li>DNS, network, and infrastructure enumeration</li>
+        <li>Identification of exposed services and misconfigurations</li>
     </ul>
 
-    <h3>Vulnerability Assessment</h3>
+    <hr>
+
+    <h3>2. Vulnerability Assessment</h3>
     <ul>
-        <li>Automated scanning with manual verification</li>
-        <li>Business logic flaw testing</li>
+        <li>Automated scanning with strict manual validation</li>
+        <li>Business logic flaw identification</li>
         <li>Authentication and authorization testing</li>
-        <li>Data validation and injection testing</li>
+        <li>Input validation, injection, and deserialization testing</li>
+        <li>Cloud configuration and access control review</li>
     </ul>
 
-    <!-- Continue with your full methodology content -->
+    <hr>
+
+    <h3>3. Exploitation & Impact Validation</h3>
+    <ul>
+        <li>Safe proof‑of‑concept execution under authorization</li>
+        <li>Privilege escalation and lateral movement testing</li>
+        <li>WAF and security control bypass evaluation</li>
+        <li>Data exposure and business risk validation</li>
+    </ul>
+
+    <hr>
+
+    <h3>4. Risk Translation</h3>
+    <ul>
+        <li>Mapping technical findings to business impact</li>
+        <li>Service disruption and reputational risk assessment</li>
+        <li>Financial and operational impact analysis</li>
+    </ul>
+
+    <hr>
+
+    <h3>5. Remediation & Hardening Support</h3>
+    <ul>
+        <li>Vendor coordination and responsible disclosure</li>
+        <li>Secure configuration and patch guidance</li>
+        <li>WAF and access control tuning recommendations</li>
+        <li>Validation of applied fixes</li>
+    </ul>
+
 </div>
