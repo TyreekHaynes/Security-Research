@@ -210,6 +210,6 @@ Bridging Elite Technical Depth with Strategic Business Impact
 
 Transforming security research into tangible business value since 2024
 
-© 2025 Tyreek Haynes | All research conducted under authorized engagement and responsible disclosure protocols
+© 2026 Tyreek Haynes | All research conducted under authorized engagement and responsible disclosure protocols
 
 </div>
