@@ -156,4 +156,4 @@
 > *This portfolio represents authorized security research conducted through proper channels. All findings have been responsibly disclosed and are in various stages of remediation.*
 ## 📚 Documentation
 
-- [Technical Methodology](METHODOLOGY.md) - Detailed assessment approach
+- [Technical Methodology](METHODOLOGY.md) - Detailed assessment approaches.
